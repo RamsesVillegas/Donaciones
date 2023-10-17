@@ -1,41 +1,84 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="884210632025-ldubuld7sc0pul2qcremtsccp7bj9tgb.apps.googleusercontent.com">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
-
     <title>Sistema de donaciones UABC</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
-
+    <!-- Google Sign-In -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="884210632025-ldubuld7sc0pul2qcremtsccp7bj9tgb.apps.googleusercontent.com">
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
-  </head>
+    <style>
+        /* Estilos para centrar la imagen y el texto "Inicia sesión" */
+        .center-image {
+            display: block;
+            margin: 0 auto;
+        }
+        .center-text {
+            text-align: center;
+        }
 
-  <body class="text-center">
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .style-div {
+            background-color: #eaf5e9;
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            margin-left: auto; /* Para centrar horizontalmente */
+            margin-right: auto; /* Para centrar horizontalmente */
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            width: 50%; /* Establecer el ancho al 50% */
+        }
+
+    </style>
+</head>
+<body class="center-text">
+  <div class="style-div">
     <form class="form-signin">
-      <img class="mb-4" src="https://comunicacioninstitucional.uabc.mx/sites/default/files/inline-images/escudo-actualizado-2022.png" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Inicia sesión</h1>
-      <label for="inputEmail" class="sr-only">Correo Institucional</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Correo Institucional" required autofocus>
-      <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Recuérdame
-        </label>
-      </div>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
-      <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+        <img class="mb-4 center-image" src="https://comunicacioninstitucional.uabc.mx/sites/default/files/inline-images/escudo-actualizado-2022.png" alt="" width="144" height="184">
+        <h1 style="color: #026e00">Inicia sesión</h1>
+        
+        <div class="form-group">
+          <label for="inputEmail" class="sr-only">Correo Institucional</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Correo Institucional" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for "inputPassword" class="sr-only">Contraseña</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+        </div>
+
+        <div style="padding: 10px">
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+        </div>
+
+        <div>
+          <label>
+            <input type="checkbox" value="remember-me"> Recuérdame
+          </label>
+        </div>
+
     </form>
-  </body>
+
+  <div class="center-image">
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+  </div>
+
+  </div> 
+    <div class="center-text">
+        &copy; 2023
+    </div>
+</body>
 </html>
