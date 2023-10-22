@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de donaciones UABC</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="signin.css">
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+        }
+
+        header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #fff; /* Color de fondo del encabezado */
+        padding: 18px;
+        color: #385835; /* Color del texto en el encabezado */
+        }
+        #logo h2 {
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #000; /* Define la sombra: desplazamiento horizontal, desplazamiento vertical, difuminación y color */
+        }
+        #menu ul {
+            list-style: none;
+            display: flex;
+        }
+        #menu li {
+            margin-right: 20px;
+        }
+        #menu a {
+            text-decoration: none;
+            color: #385835; /* Color de los enlaces */
+        }
+
+        footer {
+            background-color: #22461f; /* Color de fondo del encabezado */
+            padding: 20px;
+            color: #ffffff; /* Color del texto en el encabezado */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <div id="logo">
+      <h2>UABC</h2>
+    </div>
+    <nav id="menu">
+      <ul>
+        <li><a href="#inicio">INICIO</a></li>
+        <li><a href="#acerca">ACERCA DE</a></li>
+        <li><a href="#donacion">HAZ UNA DONACIÓN</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+    <div style="background-color: #d6e3d5; padding: 100px;">
+        <div style="display: flex; justify-content: center; margin-top: 50px; ">
+                <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: 1px 1px 1px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
+                    <h2><strong>Regístrate</strong></h2>
+
+                        <form action="procesar_formulario.php" method="post">
+
+                            <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="text" id="usuario" name="usuario" placeholder="Nombre completo" required>
+                            
+                            <br>
+                            
+                            <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="text" id="usuario" name="usuario" placeholder="nombre@dominio.com" required>
+                            
+                            <br>
+                            
+                            <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+                            
+                            <br>
+
+                            <a href="/donar">
+                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Registrate</button>
+                            </a>
+                        </form>
+                </div>
+            </div>
+    </div>
+
+  <footer>
+      <p>&copy; 2023 All rights reserved - UABC</p>
+  </footer>
+
+</body>
+</html>

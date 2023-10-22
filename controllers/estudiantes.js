@@ -1,6 +1,18 @@
 const {cursos,estudiantes} = require('../models/estudiantes');
 const list = (req,res) =>{
-    res.render('index', { cursos, estudiantes });
+    res.render('index', { cursos, estudiantes});
+};
+
+const login = (req,res) =>{
+  res.render('login', {});
+};
+
+const donar = (req,res) =>{
+  res.render('donar', {});
+};
+
+const registro = (req,res) =>{
+  res.render('registro', {});
 };
 
 const getCalificaciones = (req, res) => {
@@ -18,4 +30,7 @@ const getCalificaciones = (req, res) => {
   }
 
 module.exports.list = list;
+module.exports.donar = donar;
+module.exports.login = login;
+module.exports.registro = registro;
 module.exports.getCalificaciones = getCalificaciones;

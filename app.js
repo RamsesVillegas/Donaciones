@@ -13,7 +13,9 @@ app.set('view engine', 'twig');
 // Datos simulados (en una aplicación real, estos datos vendrían de una base de datos)
 // Ruta principal
 app.get('/', estudiantesController.list);
-
+app.get('/login', estudiantesController.login);
+app.get('/donar', estudiantesController.donar);
+app.get('/registro', estudiantesController.registro);
 // Ruta para mostrar calificaciones de un estudiante en un curso específico
 app.get('/calificaciones/:estudianteId', estudiantesController.getCalificaciones);
 
