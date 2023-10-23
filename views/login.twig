@@ -74,7 +74,13 @@
                 <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: 1px 1px 1px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
                     <h2><strong>Ingresa tu información</strong></h2>
 
-                        <form action="procesar_formulario.php" method="post">
+                    <div>
+                        <div id="g-signin" />
+                    </div>
+
+                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
+
+                        <form id="login-form">
                             <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="text" id="usuario" name="usuario" placeholder="nombre@dominio.com" required>
                             
                             <br>
@@ -103,5 +109,50 @@
       <p>&copy; 2023 All rights reserved - UABC</p>
   </footer>
 
+    <script>
+        // Inicio sesión Google
+        function onSuccess(googleUser) {
+            const profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId());
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail());
+        }
+
+        function onFailure(error) {
+            console.log(error);
+            signOut();
+        }
+
+        function renderButton() {
+            gapi.load('auth2', function() {
+                gapi.auth2.init(
+                {
+                    client_id: '884210632025-ldubuld7sc0pul2qcremtsccp7bj9tgb.apps.googleusercontent.com',
+                    plugin_name: 'g_auth',
+                }
+                );
+            });
+
+            gapi.signin2.render('g-signin', {
+                scope: 'profile email',
+                width: 300,
+                height: 50,
+                longtitle: true,
+                theme: 'dark',
+                onsuccess: onSuccess,
+                onfailure: onFailure,
+            });
+        }
+
+        function signOut() {
+            const auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 </body>
 </html>
