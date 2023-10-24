@@ -8,20 +8,23 @@
     <link rel="stylesheet" href="signin.css">
     <style>
         body {
-            font-family: "Open Sans", sans-serif;
-        }
+        font-family: "Open Sans", sans-serif;
+        margin: 0; /* Elimina los márgenes predeterminados del cuerpo */
+    }
 
         header {
         position: fixed;
         top: 0;
         width: 100%;
         display: flex;
+        z-index: 1000;
         justify-content: space-between;
         align-items: center;
         background-color: #fff; /* Color de fondo del encabezado */
         padding: 18px;
         color: #385835; /* Color del texto en el encabezado */
         }
+        
         #logo h2 {
             font-weight: bold;
             text-shadow: 1px 1px 1px #000; /* Define la sombra: desplazamiento horizontal, desplazamiento vertical, difuminación y color */
@@ -43,14 +46,20 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            z-index: -1; /* Cambia el valor de z-index a -1 para que la imagen de fondo esté detrás del contenido */
+            z-index: 10; /* Cambia el valor de z-index a -1 para que la imagen de fondo esté detrás del contenido */
         }
 
         footer {
-            background-color: #22461f; /* Color de fondo del encabezado */
-            padding: 18px;
-            color: #ffffff; /* Color del texto en el encabezado */
-            text-align: center;
+        background-color: #22461f;
+        padding: 18px;
+        color: #ffffff;
+        text-align: center;
+        width: 100%;
+        z-index: 1000;
+        }
+
+        #g-signin {
+            display: inline-block;
         }
 
     </style>
@@ -76,6 +85,7 @@
 
                     <div>
                         <div id="g-signin" />
+                    </div>
                     </div>
 
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
