@@ -65,24 +65,22 @@
                 <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: 1px 1px 1px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
                     <h2><strong>Regístrate</strong></h2>
 
-                        <form action="procesar_formulario.php" method="post">
+                    <form id="registro-form">
 
-                            <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="text" id="usuario" name="usuario" placeholder="Nombre completo" required>
-                            
-                            <br>
-                            
-                            <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="text" id="usuario" name="usuario" placeholder="nombre@dominio.com" required>
-                            
-                            <br>
-                            
-                            <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-                            
-                            <br>
+                        <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                        
+                        <br>
+                        
+                        <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="email" id="email" name="email" placeholder="nombre@dominio.com" required>
+                        
+                        <br>
+                        
+                        <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="password" id="password" name="password" placeholder="Contraseña" required>
+                        
+                        <br>
 
-                            <a href="/donar">
-                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Registrate</button>
-                            </a>
-                        </form>
+                        <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Registrate</button>
+                    </form>
                 </div>
             </div>
     </div>
@@ -91,5 +89,34 @@
       <p>&copy; 2023 All rights reserved - UABC</p>
   </footer>
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+    <script>
+        // Validación registro
+        $('#registro-form').on('submit', function () {
+            fetch('http://localhost:3001/usuario/crear', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    nombre: $('#nombre').val(),
+                    email: $('#email').val(),
+                    password: $('#password').val()
+                })
+            })
+            .then(response => response.json())
+            .then(usuarioCreado => {
+                if (usuarioCreado) {
+                    alert('Registro exitoso. Ahora puede iniciar sesión');
+                    window.location.replace("http://localhost:3000/login");
+                }
+                else {
+                    alert('Ha sucedido un error al registrarse');
+                }
+            }); 
+
+            return false;
+
+        });
+    </script>
 </body>
 </html>

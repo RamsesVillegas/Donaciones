@@ -80,19 +80,17 @@
 
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
 
-                        <form id="login-form">
-                            <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="text" id="usuario" name="usuario" placeholder="nombre@dominio.com" required>
-                            
-                            <br>
-                            
-                            <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="password" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-                            
-                            <br>
+                    <form id="login-form">
+                        <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="email" id="email" name="email" placeholder="nombre@dominio.com" required>
+                        
+                        <br>
+                        
+                        <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="password" id="password" name="password" placeholder="Contraseña" required>
+                        
+                        <br>
 
-                            <a href="/donar">
-                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Iniciar sesión</button>
-                            </a>
-                        </form>
+                        <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Iniciar sesión</button>
+                    </form>
 
                    <a href="url_de_tu_pagina_de_recuperacion.html" style="display: block; text-align: center; margin-top: 20px; color: #FFF; text-decoration: underline;">¿Has olvidado la contraseña?</a>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
@@ -108,6 +106,9 @@
   <footer>
       <p>&copy; 2023 All rights reserved - UABC</p>
   </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     <script>
         // Inicio sesión Google
@@ -151,8 +152,29 @@
                 console.log('User signed out.');
             });
         }
-    </script>
 
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        // Validación login
+         $('#login-form').on('submit', function () {
+            fetch('http://localhost:3001/login', {
+                method: 'POST',
+                headers: { 'content-type': 'application/json' },
+                body: JSON.stringify({
+                    email: $('#email').val(),
+                    password: $('#password').val()
+                })
+            })
+            .then(response => response.json())
+            .then(loginCorrecto => {
+                if (loginCorrecto) {
+                    window.location.replace("http://localhost:3000/donar");
+                }
+                else {
+                    alert('Usuario y/o contraseña inválidos');
+                }
+            }); 
+
+            return false;
+        });
+    </script>
 </body>
 </html>
