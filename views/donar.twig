@@ -18,13 +18,16 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #fff; /* Color de fondo del encabezado */
+        background-color: #fff;
         padding: 18px;
-        color: #385835; /* Color del texto en el encabezado */
+        color: #385835; 
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 10;
         }
         #logo h2 {
             font-weight: bold;
             text-shadow: 1px 1px 1px #000; /* Define la sombra: desplazamiento horizontal, desplazamiento vertical, difuminación y color */
+            color: #385835;
         }
         #menu ul {
             list-style: none;
@@ -44,12 +47,29 @@
             color: #ffffff; /* Color del texto en el encabezado */
             text-align: center;
         }
+
+        table {
+            border-collapse: collapse; 
+            width: 100%; 
+            background-color: #d6e3d5;
+            margin-top: 30px;
+        }
+
+        table td {
+            padding: 5px;
+            vertical-align: center;
+            border: 8px solid #22461f;
+            color: #22461f;
+        }
     </style>
 </head>
 <body>
   <header>
-    <div id="logo">
-      <h2>UABC</h2>
+    <div style="display: flex;">
+    <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="34" height="45" />
+    <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
+        <h2>UABC</h2>
+    </a>
     </div>
     <nav id="menu">
       <ul>
@@ -61,29 +81,49 @@
   </header>
   <div style="background-color: #d6e3d5; padding: 100px;">
         <div style="display: flex; justify-content: center; margin-top: 50px; ">
-                <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: 1px 1px 1px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
-                    <h2><strong>Tarjeta de Crédito/Débito</strong></h2>
-
-                        <form action="procesar_formulario.php" method="post">
-
-                            <input style="border-radius: 5px; margin-top: 30px; padding: 12px; width: 80%;" type="text" id="NumeroTarjeta" name="usuario" placeholder="Número de tarjeta" required>
-                            
-                            <br>
-                            
-                            <input style="border-radius: 5px; margin-top: 20px; padding: 12px; width: 80%;" type="text" id="nombreTitular" name="usuario" placeholder="Nombre del titular" required>
-                            
-                            <br>
-                            
-                            <div style="display: inline-block; margin-right: 5px;">
-                                <input style="border-radius: 5px; margin-top: 20px; padding: 12px; width: 100%;" type="password" id="fecha" name="contrasena" placeholder="MM/AA" required>
-                            </div>
-
-                            <div style="display: inline-block;">
-                                <input style="border-radius: 5px; margin-top: 20px; padding: 12px; width: 100%;" type="password" id="cvv" name="contrasena" placeholder="CVV/CVC" required>
-                            </div>
-
+                <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
+                    <h3><strong>DATOS BANCARIOS PARA RECIBIR TRANSFERENCIAS NACIONALES E INTERNACIONALES</br></br>DEPARTAMENTO DE TESORERíA CAMPUS MEXICALI</strong></h3>
+                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
+                    <table>
+                    <tr>
+                        <td><strong>Banco:</strong></td>
+                        <td>Banco Santander (México) S.A.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Beneficiario:</strong></td>
+                        <td>Universidad Autónoma de Baja California</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cuenta:</strong></td>
+                        <td>65501399913</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CLABE Interbancaria:</strong></td>
+                        <td>014020655013999134</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TAX ID:</strong></td>
+                        <td>UAE5702287S5</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Código Swift:</strong></td>
+                        <td>BMSXMXMM</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Domicilio:</strong></td>
+                        <td>Avenida Álvaro Obregón Sin Número Colonia Nueva C.P.21100</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ciudad:</strong></td>
+                        <td>Mexicali, Baja California</td>
+                    </tr>
+                    <tr>
+                        <td><strong>País:</strong></td>
+                        <td>México</td>
+                    </tr>
+                    </table>
                             <a href="/donar">
-                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Donar</button>
+                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Enviar comprobante</button>
                             </a>
                         </form>
                 </div>

@@ -18,14 +18,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #fff; /* Color de fondo del encabezado */
+        background-color: #fff;
         padding: 18px;
-        color: #385835; /* Color del texto en el encabezado */
+        color: #385835; 
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 10;
         }
         #logo h2 {
             font-weight: bold;
             text-shadow: 1px 1px 1px #000; /* Define la sombra: desplazamiento horizontal, desplazamiento vertical, difuminación y color */
-        }
+            color: #385835;
+           }
         #menu ul {
             list-style: none;
             display: flex;
@@ -48,8 +51,11 @@
 </head>
 <body>
   <header>
-    <div id="logo">
-      <h2>UABC</h2>
+    <div style="display: flex;">
+    <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="34" height="45" />
+    <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
+        <h2>UABC</h2>
+    </a>
     </div>
     <nav id="menu">
       <ul>

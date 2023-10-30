@@ -10,6 +10,7 @@
         body {
             font-family: "Open Sans", sans-serif;
         }
+
         header {
         position: fixed;
         top: 0;
@@ -17,13 +18,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background-color: #fff; /* Color de fondo del encabezado */
+        background-color: #fff;
         padding: 18px;
-        color: #385835; /* Color del texto en el encabezado */
+        color: #385835; 
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+        z-index: 10;
         }
+
         #logo h2 {
             font-weight: bold;
             text-shadow: 1px 1px 1px #000; /* Define la sombra: desplazamiento horizontal, desplazamiento vertical, difuminación y color */
+            color: #385835;
         }
         #menu ul {
             list-style: none;
@@ -34,7 +39,7 @@
         }
         #menu a {
             text-decoration: none;
-            color: #385835; /* Color de los enlaces */
+            color: #385835;
         }
 
         #inicio {
@@ -42,28 +47,6 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            z-index: -1; /* Cambia el valor de z-index a -1 para que la imagen de fondo esté detrás del contenido */
-        }
-
-        #inicio img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Ajusta la imagen de fondo para cubrir el contenedor */
-            filter: brightness(0.5);
-        }
-
-        #inicio::before {
-            content: "Apoya a computación";
-            text-shadow: 1px 1px 1px #000;
-            position: absolute;
-            top: 60%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 50px; /* Ajusta el tamaño de fuente según tu preferencia */
-            text-align: center;
-            font-weight: bold;
-            z-index: 1; /* Asegúrate de que el texto esté por encima de la imagen */
         }
 
         #acerca {
@@ -72,14 +55,12 @@
             padding: 80px;
         }
 
-        /* Estilos para el contenedor principal */
         .acerca-contenido {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Estilos para la imagen a la derecha */
         .acerca-imagen {
             display: flex;
             text-align: right;
@@ -99,13 +80,16 @@
             margin-top: 20px; /* Agrega margen superior para separarlo de la imagen */
             text-align: center;
         }
-        
     </style>
 </head>
 <body>
+
   <header>
-    <div id="logo">
-      <h2>UABC</h2>
+    <div style="display: flex;">
+    <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="34" height="45" />
+    <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
+        <h2>UABC</h2>
+    </a>
     </div>
     <nav id="menu">
       <ul>
@@ -116,9 +100,15 @@
     </nav>
   </header>
 
-  <section id="inicio">
-    <img src="https://lh7-us.googleusercontent.com/cPjY7_P62QsNOyz_84eaUJKLqBJIQ10l2RA2tpHPGa0x4f3QSBcdxOr6OjUSCvMlL4UJshoN5LHJMtiHVaZV2xxh4N6PNuqan6WkoEqOySqI8IeralW87ZSY7Pd-HMZXM_7qXh2y2Suvb9xUqiMyfy4" alt="Imagen de inicio">
-  </section>
+<section id="inicio" style="position: relative; text-align: center;">
+    <img src="https://lh7-us.googleusercontent.com/cPjY7_P62QsNOyz_84eaUJKLqBJIQ10l2RA2tpHPGa0x4f3QSBcdxOr6OjUSCvMlL4UJshoN5LHJMtiHVaZV2xxh4N6PNuqan6WkoEqOySqI8IeralW87ZSY7Pd-HMZXM_7qXh2y2Suvb9xUqiMyfy4" style="width: 100%; height: 100%; filter: brightness(0.5); z-index: -1;"/>
+    <div style="position: absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); z-index: 1;">
+        <p style="text-shadow: 1px 1px 1px #000; color: white; font-size: 50px; font-weight: bold;">Apoya a computación</p>
+        <a href="/login">
+            <button style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none;width: 70%;">DONA AHORA</button>
+        </a>
+    </div>
+</section>
 
   <section id="acerca">
       <div class="acerca-contenido">
@@ -133,31 +123,28 @@
       </div>
   </section>
 
-  <section id="donacion">
-      <div>
-          <h1 style="text-align: center;"><strong>HAZ UNA DONACIÓN</strong></h1>
-          <hr style="width: 100px; border: 3px solid #eaf5e9;"> <!-- Línea separadora horizontal -->
-      </div>
-        <div style="display: flex; padding: 60px;">
-        <div style="flex: 1;">
-            <h5><br>Con tu apoyo, podemos proporcionar los recursos esenciales, materiales, instalaciones y equipos de alta calidad. Tu apoyo transforma el futuro de estudiantes. Únete a nosotros y marca la diferencia hoy.<br><br></h5>
-            <img src="https://lh7-us.googleusercontent.com/EP6yl2lIeNqPxXhIB54k202eGevj3Zl_UPCV8lWhD11nMS1Cjk5HWdfZ-DSfQxkNWsquSdTktoaeFzJSI0x7ehaNoIHWkWpm398MRTSdLBfrNjBxrFcXTh_rDCb_8SWs54z6zoit3i-BJP4_UBTs2tk" style="display: block; margin: 0 auto;" width="451" height="375">
-        </div>
-        <div style="flex: 1; background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; display: flex; flex-direction: column; justify-content: center; text-shadow: 1px 1px 1px #000">
-            <h2><strong>Monto de donación</strong></h2>
-            
-                <a href="/login">
-                    <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">DONA AHORA</button>
-                </a>
-            
-        </div>
-      </div>
-    </section>
+<section id="donacion">
+    <div style="text-align: center;">
+        <h1><strong>HAZ UNA DONACIÓN</strong></h1>
+        <hr style="width: 100px; border: 3px solid #eaf5e9;">
+    </div>
 
+    <div style="display: flex; justify-content: center; align-items: center; padding: 60px;">
+        <div style="flex: 1;  margin-left: 70px;">
+            <img src="https://lh7-us.googleusercontent.com/EP6yl2lIeNqPxXhIB54k202eGevj3Zl_UPCV8lWhD11nMS1Cjk5HWdfZ-DSfQxkNWsquSdTktoaeFzJSI0x7ehaNoIHWkWpm398MRTSdLBfrNjBxrFcXTh_rDCb_8SWs54z6zoit3i-BJP4_UBTs2tk" width="421" height="355">
+        </div>
+        <div style="flex: 1; text-align: center; margin-right: 70px;">
+            <h5 style="margin-bottom: 30px;">Con tu apoyo, podemos proporcionar los recursos esenciales, materiales, instalaciones y equipos de alta calidad. Tu apoyo transforma el futuro de estudiantes. Únete a nosotros y marca la diferencia hoy.</h5>
+        <a href="/login">
+            <button style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 50%;">DONA AHORA</button>
+        </a>
+        </div>
+    </div>
+</section>
 
-  <footer>
-      <p>&copy; 2023 All rights reserved - UABC</p>
-  </footer>
+<footer>
+    <p>&copy; 2023 All rights reserved - UABC</p>
+</footer>
 
 </body>
 </html>
