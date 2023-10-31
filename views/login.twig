@@ -133,6 +133,12 @@
             console.log('Name: ' + profile.getName());
             console.log('Image URL: ' + profile.getImageUrl());
             console.log('Email: ' + profile.getEmail());
+
+            if (profile.getId()) {
+                window.location.replace("http://localhost:3000/donar");
+            }
+
+            signOut();
         }
 
         function onFailure(error) {
