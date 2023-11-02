@@ -89,14 +89,13 @@
                     <h2><strong>Ingresa tu información</strong></h2>
 
                     <div>
-                        <div id="g-signin" />
-                    </div>
+                        <div id="g-signin"></div>
                     </div>
 
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
 
-                    <form id="login-form">
-                        <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="email" id="email" name="email" placeholder="nombre@dominio.com" required>
+                    <form action="/login" method="POST">
+                        <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="email" id="email" name="username" placeholder="nombre@dominio.com" required>
                         
                         <br>
                         
@@ -104,7 +103,7 @@
                         
                         <br>
 
-                        <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Iniciar sesión</button>
+                        <button type="submit" style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Iniciar sesión</button>
                     </form>
 
                    <a href="url_de_tu_pagina_de_recuperacion.html" style="display: block; text-align: center; margin-top: 20px; color: #FFF; text-decoration: underline;">¿Has olvidado la contraseña?</a>
@@ -173,29 +172,6 @@
                 console.log('User signed out.');
             });
         }
-
-        // Validación login
-         $('#login-form').on('submit', function () {
-            fetch('http://localhost:3001/login', {
-                method: 'POST',
-                headers: { 'content-type': 'application/json' },
-                body: JSON.stringify({
-                    email: $('#email').val(),
-                    password: $('#password').val()
-                })
-            })
-            .then(response => response.json())
-            .then(loginCorrecto => {
-                if (loginCorrecto) {
-                    window.location.replace("http://localhost:3000/donar");
-                }
-                else {
-                    alert('Usuario y/o contraseña inválidos');
-                }
-            }); 
-
-            return false;
-        });
     </script>
 </body>
 </html>
