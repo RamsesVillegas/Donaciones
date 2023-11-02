@@ -23,14 +23,23 @@ passport.use(new PassportLocal((username, password, done) => {
 
 // Proceso de serialización
 passport.serializeUser((user, done) => {
+    console.log(user.id);
     done(null, user.id);
 });
 
 // Proceso de deserialización
 passport.deserializeUser((id, done) => {
-    // TODO: buscar los datos del usuario en la DB
-    let user = { id: 1, name: 'Jonathan' };
-    done(null, user);
+    fetch(`http://localhost:3001/usuario/${id}`)
+    .then(response => response.json())
+    .then(usuario => {
+        console.log(usuario);
+        if (usuario.id && usuario.nombre) {
+            return done(null, usuario);
+        }
+        else {
+            return done(null, false);
+        }
+    });
 });
 
 module.exports = passport;
