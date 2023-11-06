@@ -22,6 +22,11 @@ app.use(session({
 app.use(miPassport.initialize());
 app.use(miPassport.session());
 
+// Agrega una ruta para la vista del administrador
+app.get('/admin', (req, res) => {
+  res.render('admin.twig'); // Renderiza la vista del administrador
+});
+
 // Configurar el motor de plantillas Twig
 app.set('views', './views');
 app.set('view engine', 'twig');
