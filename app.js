@@ -38,6 +38,16 @@ app.post('/login', miPassport.authenticate('local', {
   successRedirect: '/donar',
   failureRedirect: '/login'
 }));
+app.post('/logout', (req, res, next) => {
+  res.clearCookie('connect.sid');
+  req.logout((err) => {
+    if (err) return next(err);
+
+    req.session.destroy((err) => {
+      res.redirect('/');
+    });
+  });
+});
 app.get('/donar', (req, res, next) => {
   if (req.isAuthenticated()) return next();
 
