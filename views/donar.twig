@@ -84,7 +84,7 @@
   <div style="background-color: rgba(214, 227, 213, 0.5); padding: 100px;">
      <div style="display: flex; justify-content: center; margin-top: 50px; ">
                 <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
-                    <h3><strong>DATOS BANCARIOS PARA RECIBIR TRANSFERENCIAS NACIONALES E INTERNACIONALES</br></br>DEPARTAMENTO DE TESORERíA CAMPUS MEXICALI</strong></h3>
+                    <h3><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
                     <table>
                     <tr>
@@ -124,8 +124,24 @@
                         <td>México</td>
                     </tr>
                     </table>
-                            <a href="/donar">
-                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 0px 0px 1px #000;border: 0px solid #ff0000;">Enviar comprobante</button>
+                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->   
+                    <h3><strong>2. Sube tu comprobante de transferencia bancaria.</br></strong></h3>
+                     <form action="procesar_imagen.php" method="post" enctype="multipart/form-data">
+                        <label for="imagen"></br>Selecciona una imagen:</label>
+                        <input type="file" name="imagen" id="imagen" accept="image/*" required>
+                        <br>
+                        {# <input type="submit" value="Subir Imagen">#}
+                    </form> 
+                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->   
+                    <h3><strong>3. Datos para facturar (opcional)</br></strong></h3>
+                    <h3> </h3>
+                        <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="nombre" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                        <br>
+                        <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="rfc" id="rfc" name="rfc" placeholder="RFC" required>
+                        <br>
+                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->   
+                            <a href="/">
+                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 0px 0px 1px #000;border: 0px solid #ff0000;">Enviar donativo</button>
                             </a>
                         </form>
                 </div>

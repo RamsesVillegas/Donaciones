@@ -19,8 +19,8 @@ app.use(session({
 }));
 
 // Configuración passport
-app.use(miPassport.initialize());
-app.use(miPassport.session());
+//app.use(miPassport.initialize());
+//app.use(miPassport.session());
 
 // Configurar el motor de plantillas Twig
 app.set('views', './views');
@@ -34,12 +34,14 @@ app.post('/login', miPassport.authenticate('local', {
   failureRedirect: '/login'
 }));
 app.get('/donar', (req, res, next) => {
-  if (req.isAuthenticated()) return next();
+  // if (req.isAuthenticated()) return next();
 
-  res.redirect('/login');
+  //res.redirect('/donar');
+  next();
 }, sistemaController.donar);
 app.get('/registro', sistemaController.registro);
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+    
