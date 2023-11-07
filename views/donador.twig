@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Panel de Donante - Sistema de Donaciones UABC</title>
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #fff; /* Cambié el fondo a blanco */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #logo h2 {
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #000;
+            color: #385835;
+        }
+
+        header {
+            background-color: #fff;
+            color: #385835;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #385835;
+            color: #fff;
+            padding: 6px;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin: 0 8px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            color: #385835;
+            background-color: #febe10;
+        }
+
+        section {
+            padding: 10px;
+            flex: 1;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        section h1 {
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #22461f;
+            color: #fff;
+            text-align: center;
+            padding: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="30" height="40" />
+            <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
+                <h2>UABC</h2>
+            </a>
+        </div>
+        <h2 style="text-align: center; flex: 1; font-size: 18px;">Panel de Donante</h2>
+    </div>
+</header>
+
+<nav>
+    <div style="display: flex; align-items: center;">
+        <p style="margin-right: 12px; font-weight: bold; font-size: 14px;">Nombre de Donante</p> <!-- Nombre del donante autenticado -->
+    </div>
+    <ul style="list-style: none; display: flex; justify-content: flex-end;">
+        <li><a href="#donar">REALIZAR DONACIÓN</a></li>
+        <li><a href="#historial">HISTORIAL DE DONACIONES</a></li>
+        <li><a href="#facturacion">FACTURACIÓN</a></li>
+        <li><a href="#configuracion">CONFIGURACIÓN</a></li>
+        <li><a href="#cerrarSesion">CERRAR SESIÓN</a></li>
+    </ul>
+</nav>
+
+<section id="donar">
+    <h1>Realizar Donación</h1>
+    <!-- Formulario para realizar una donación -->
+    <!-- Selección de cantidad, carrera beneficiaria, método de pago, etc. -->
+</section>
+
+<section id="historial">
+    <h1>Historial de Donaciones</h1>
+    <!-- Mostrar un historial de donaciones previas con detalles y estado -->
+</section>
+
+<section id="facturacion">
+    <h1>Facturación</h1>
+    <!-- Formulario para solicitar facturas de donaciones realizadas -->
+</section>
+
+<section id="configuracion">
+    <h1>Configuración del Donante</h1>
+    <!-- Permitir al donante configurar su perfil y preferencias -->
+</section>
+
+<footer>
+    <p>&copy; 2023 All rights reserved - UABC</p>
+</footer>
+
+</body>
+</html>

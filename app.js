@@ -27,6 +27,11 @@ app.get('/admin', (req, res) => {
   res.render('admin.twig'); // Renderiza la vista del administrador
 });
 
+// Agrega una ruta para la vista del donador
+app.get('/donador', (req, res) => {
+  res.render('donador.twig'); // Renderiza la vista del donador
+});
+
 // Configurar el motor de plantillas Twig
 app.set('views', './views');
 app.set('view engine', 'twig');
