@@ -27,6 +27,21 @@ app.get('/admin', (req, res) => {
   res.render('admin.twig'); // Renderiza la vista del administrador
 });
 
+// Agrega una ruta para la vista del coordinador
+app.get('/coordi', (req, res) => {
+  res.render('coordi.twig'); // Renderiza la vista del coordinador
+});
+
+// Agrega una nueva ruta para la vista del perfil del coordinador
+app.get('/coordi/perfil', (req, res) => {
+  res.render('coordi_perfil.twig'); // Renderiza la vista del perfil del coordinador
+});
+
+// Agrega una nueva ruta para la vista del perfil del coordinador
+app.get('/coordi/cortes', (req, res) => {
+  res.render('coordi_cortes.twig'); // Renderiza la vista del perfil del coordinador
+});
+
 // Agrega una ruta para la vista del donador
 app.get('/donador', (req, res) => {
   res.render('donador.twig'); // Renderiza la vista del donador

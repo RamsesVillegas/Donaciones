@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Panel de Coordinador - Sistema de Donaciones UABC</title>
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        body {
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f7f7f7;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #logo h2 {
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #000;
+            color: #385835;
+        }
+
+        header {
+            background-color: #fff;
+            color: #385835;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #385835;
+            color: #fff;
+            padding: 6px;
+            display: flex;
+            justify-content: space between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav li {
+            margin: 0 8px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        nav a:hover {
+            color: #385835;
+            background-color: #febe10;
+        }
+
+        section {
+            padding: 20px;
+            flex: 1;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        section h1 {
+            font-size: 24px;
+            color: #385835;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .perfil-info {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .perfil-item {
+            margin: 15px 0;
+            padding: 10px; /* Añadido para cuadro con fondo */
+            border: 1px solid #ddd; /* Añadido para cuadro con fondo */
+            border-radius: 8px; /* Añadido para cuadro con fondo */
+        }
+
+        .perfil-item strong {
+            color: #385835;
+            font-weight: bold;
+            display: block;
+            font-size: 18px;
+        }
+
+        .perfil-item span {
+            color: #000;
+            font-size: 16px;
+        }
+
+        footer {
+            background-color: #22461f;
+            color: #fff;
+            text-align: center;
+            padding: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center;">
+            <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="34" height="45" />
+            <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
+                <h2>UABC</h2>
+            </a>
+        </div>
+        <h2 style="text-align: center; flex: 1; font-size: 18px;">Panel de Coordinador</h2>
+    </div>
+</header>
+
+<nav style="background-color: #385835; justify-content: space-between;">
+    <div style="display: flex; align-items: center;">
+        <p style="margin-left: 12px; font-weight: bold; font-size: 14px;">Nombre de Coordinador</p>
+    </div>
+    <ul style="list-style: none; display: flex;">
+        <li><a href="/coordi/perfil">PERFIL</a></li>
+        <li><a href="/coordi">DONACIONES</a></li>
+        <li><a href="/coordi/cortes">CORTES</a></li>
+        <li><a href="#salir">SALIR</a></li>
+    </ul>
+</nav>
+
+<section id="perfil">
+    <h1>Perfil del Coordinador</h1>
+    <div class="perfil-info">
+        <div class="perfil-item">
+            <div style="display: flex; align-items: center;">
+                <div style="flex: 1;">
+                    <img src="tu_imagen_de_perfil.jpg" alt="Foto de perfil" style="max-width: 150px; border-radius: 50%;" />
+                </div>
+                <div style="flex: 3; padding-left: 20px;">
+                    <div class="perfil-item">
+                        <strong>ID:</strong>
+                        <span>1</span>
+                    </div>
+                    <div class="perfil-item">
+                        <strong>Nombre:</strong>
+                        <span>Coordinador 1</span>
+                    </div>
+                    <div class="perfil-item">
+                        <strong>Carrera:</strong>
+                        <span>Ingeniero en Computación</span>
+                    </div>
+                    <div class="perfil-item">
+                        <strong>Correo:</strong>
+                        <span>coordi1@uabc.edu.mx</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <p>&copy; 2023 All rights reserved - UABC</p>
+</footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Panel de Administrador - Sistema de Donaciones UABC</title>
+    <title>Panel de Coordinador - Sistema de Donaciones UABC</title>
     <link rel="stylesheet" href="admin.css">
     <style>
         body {
@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #fff; /* Cambié el fondo a blanco */
+            background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -79,7 +79,6 @@
             font-size: 16px;
         }
 
-        /* Agrega estos estilos a tu archivo CSS existente */
         .user-table {
             width: 100%;
             border-collapse: collapse;
@@ -119,56 +118,27 @@
 
 <header>
     <div style="display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; align-items: center;"> <!-- Agregamos "align-items: center;" para centrar verticalmente -->
-            <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="30" height="40" />
+        <div style="display: flex; align-items: center;">
+            <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="34" height="45" />
             <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
                 <h2>UABC</h2>
             </a>
         </div>
-        <h2 style="text-align: center; flex: 1; font-size: 18px;">Panel de Administrador (Facultad)</h2>
+        <h2 style="text-align: center; flex: 1; font-size: 18px;">Panel de Coordinador</h2>
     </div>
 </header>
 
-
 <nav>
     <div style="display: flex; align-items: center;">
-        <p style="margin-right: 12px; font-weight: bold; font-size: 14px;">Nombre de Usuario</p>
+        <p style="margin-right: 12px; font-weight: bold; font-size: 14px;">Nombre de Coordinador</p> <!-- Nombre del coordinador autenticado -->
     </div>
     <ul style="list-style: none; display: flex; justify-content: flex-end;">
-        <li><a href="#usuarios">GESTIÓN DE USUARIOS</a></li>
-        <li><a href="#donaciones">GESTIÓN DE DONACIONES</a></li>
-        <li><a href="#reportes">REPORTES</a></li>
-        <li><a href="#configuracion">CONFIGURACIÓN</a></li>
-        <li><a href="#cerrarSesion">CERRAR SESIÓN</a></li>
+        <li><a href="/coordi/perfil">PERFIL</a></li>
+        <li><a href="/coordi">DONACIONES</a></li>
+        <li><a href="/coordi/cortes">CORTES</a></li>
+        <li><a href="#salir">SALIR</a></li>
     </ul>
 </nav>
-
-<section id="usuarios">
-    <h1>Gestión de Usuarios</h1>
-    <table class="user-table">
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Correo</th>
-        <th>Número de Donaciones</th>
-        <th>Tipo de Usuario</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Donante 1</td>
-        <td>usuario1@example.com</td>
-        <td>5</td>
-        <td>Donante</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Administrador 1</td>
-        <td>usuario2@example.com</td>
-        <td>3</td>
-        <td>Administrador</td>
-    </tr>
-    </table>
-</section>
 
 <section id="donaciones">
     <h1>Gestión de Donaciones</h1>
@@ -192,14 +162,6 @@
             <td>$50.00</td>
         </tr>
     </table>
-</section>
-
-<section id="reportes">
-    <h1>Reportes y Analíticas</h1>
-</section>
-
-<section id="configuracion">
-    <h1>Configuración del Sistema</h1>
 </section>
 
 <footer>
