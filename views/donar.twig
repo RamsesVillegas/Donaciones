@@ -79,6 +79,39 @@
             border-radius: 20px;
             cursor: pointer;
         }
+
+            #file-input-1,
+            #file-input-2 {
+                display: none;
+            }
+
+            #custom-button-1,
+            #custom-button-2 {
+                display: inline-block;
+                padding: 10px 15px;
+                font-size: 20px;
+                cursor: pointer;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 15px;
+            }
+
+            #file-label-1,
+            #file-label-2 {
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            #custom-button-1:hover,
+            #custom-button-2:hover {
+                background-color: #45a049;
+            }
+
+            #custom-button-1.dragover,
+            #custom-button-2.dragover {
+                border: 3px dashed #2f6d31;
+            }
     </style>
 </head>
 <body>
@@ -142,28 +175,40 @@
                         <td>México</td>
                     </tr>
                     </table>
-                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->   
-                    <h3><strong>2. Sube tu comprobante de transferencia bancaria.</br></strong></h3>
-                     <form action="procesar_imagen.php" method="post" enctype="multipart/form-data">
-                        <label for="imagen"></br>Selecciona una imagen:</label>
-                        <input type="file" name="imagen" id="imagen" accept="image/*" required>
-                        <br>
-                        {# <input type="submit" value="Subir Imagen">#}
-                    </form> 
-                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->   
-                    <h3><strong>3. Datos para facturar (opcional)</br></strong></h3>
-                    <h3> </h3>
-                        <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="nombre" id="nombre" name="nombre" placeholder="Nombre completo" required>
-                        <br>
-                        <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="rfc" id="rfc" name="rfc" placeholder="RFC" required>
-                        <br>
-                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->   
-                            <a href="/">
-                                <button style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 0px 0px 1px #000;border: 0px solid #ff0000;">Enviar donativo</button>
-                            </a>
-                        </form>
+
+                <!-- Punto 2: Sube tu comprobante de transferencia bancaria -->
+                        <h3 style="margin-top: 35px"><strong>2. Sube tu comprobante de transferencia bancaria.</strong></h3>
+                        <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
+                        
+                        <input type="file" id="file-input-1" accept="image/*" />
+                        <label for="file-input-1" id="custom-button-1" ondragover="handleDragOver(event)" ondragleave="handleDragLeave()" ondrop="handleDrop(event)">
+                            Examina
+                            <br />
+                            <img src="https://lh7-us.googleusercontent.com/lvkjIrQD41XP1_cmsHzSAwAFnEah6I8zlhOojPxvCaoO0kjZ_FY5M51zwdiSHw_QucSem6ieOFdr7xXgRyzPiae6fCHXTrUxCgwhFSGHZiP4_nh5LUEEwZk3j0jfzxDNDcE1QtRsbNGNEJMG7wc2NW4" alt="Icono Subir Archivo" width="75" height="75" />
+                            <br />
+                            <span id="file-label-1">O arrastra archivos aquí</span>
+                        </label>
+
+                        <!-- Punto 3: Datos para facturar (opcional) -->
+                        <h3 style="margin-top: 35px"><strong>3. Datos para facturar (opcional).</h3>
+                        <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
+                        
+                        <input type="file" id="file-input-2" accept="image/*" />
+                        <label for="file-input-2" id="custom-button-2" ondragover="handleDragOver(event)" ondragleave="handleDragLeave()" ondrop="handleDrop(event)">
+                            Examina
+                            <br />
+                            <img src="https://lh7-us.googleusercontent.com/lvkjIrQD41XP1_cmsHzSAwAFnEah6I8zlhOojPxvCaoO0kjZ_FY5M51zwdiSHw_QucSem6ieOFdr7xXgRyzPiae6fCHXTrUxCgwhFSGHZiP4_nh5LUEEwZk3j0jfzxDNDcE1QtRsbNGNEJMG7wc2NW4" alt="Icono Subir Archivo" width="75" height="75" />
+                            <br />
+                            <span id="file-label-2">O arrastra archivos aquí</span>
+                        </label>
+                        <hr style="width: 400px; border: .5px solid #22461f;"> <!-- Línea separadora horizontal -->                        
+                        <div>
+                         <a href="/donar">
+                            <button style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;">Enviar comprobante</button>
+                        </a>
+                        </div>
                 </div>
-            </div>
+           </div>
     </div>
 </div>
   <footer>
@@ -172,6 +217,64 @@
         <button id="btn-cerrar-sesion" type="submit">Cerrar sesión</button>
     </form>
   </footer>
+
+    <script>
+    const fileInput1 = document.getElementById('file-input-1');
+    const fileLabel1 = document.getElementById('file-label-1');
+    const customButton1 = document.getElementById('custom-button-1');
+
+    fileInput1.addEventListener('change', handleFileSelect1);
+
+    function handleFileSelect1() {
+        const files = fileInput1.files;
+        if (files.length > 0) {
+            fileLabel1.textContent = files[0].name;
+        } else {
+            fileLabel1.textContent = 'O arrastra archivos aquí';
+        }
+    }
+
+    const fileInput2 = document.getElementById('file-input-2');
+    const fileLabel2 = document.getElementById('file-label-2');
+    const customButton2 = document.getElementById('custom-button-2');
+
+    fileInput2.addEventListener('change', handleFileSelect2);
+
+    function handleFileSelect2() {
+        const files = fileInput2.files;
+        if (files.length > 0) {
+            fileLabel2.textContent = files[0].name;
+        } else {
+            fileLabel2.textContent = 'O arrastra archivos aquí';
+        }
+    }
+
+    function handleDragOver(event) {
+        event.preventDefault();
+        customButton1.classList.add('dragover');
+        customButton2.classList.add('dragover');
+    }
+
+    function handleDragLeave() {
+        customButton1.classList.remove('dragover');
+        customButton2.classList.remove('dragover');
+    }
+
+    function handleDrop(event) {
+        event.preventDefault();
+        customButton1.classList.remove('dragover');
+        customButton2.classList.remove('dragover');
+
+        const files = event.dataTransfer.files;
+        if (event.target.id === 'custom-button-1') {
+            fileInput1.files = files;
+            handleFileSelect1();
+        } else if (event.target.id === 'custom-button-2') {
+            fileInput2.files = files;
+            handleFileSelect2();
+        }
+    }
+    </script>
 
 </body>
 </html>
