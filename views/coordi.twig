@@ -76,7 +76,11 @@
         }
 
         section h1 {
-            font-size: 16px;
+            font-size: 24px;
+            color: #385835;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
 
         .donaciones-table {
@@ -84,6 +88,7 @@
             border-collapse: collapse;
             margin-top: 20px;
             overflow-x: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
         }
 
         .donaciones-table th, .donaciones-table td {
@@ -140,6 +145,7 @@
         #realizar-corte-btn {
             margin-bottom: 10px;
             margin-left: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
         }
 
         #aceptar-btn,
@@ -147,6 +153,17 @@
             margin-top: 10px;
             margin-right: 10px;
             align-self: flex-end;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
+        }
+
+        button:disabled {
+            background-color: #ccc; /* Cambia el color de fondo de los botones deshabilitados */
+            cursor: not-allowed; /* Cambia el cursor para indicar que el botón no está disponible */
+            opacity: 0.7; /* Cambia la opacidad para indicar visualmente que el botón está deshabilitado */
+        }
+
+        .donaciones-table tr.selected {
+            background-color: #febe10; /* Cambia el color de fondo de las filas seleccionadas */
         }
     </style>
 </head>
@@ -177,8 +194,8 @@
 </nav>
 
 <section id="donaciones">
-    <h1>Gestión de Donaciones</h1>
-    <button id="realizar-corte-btn">Realizar Corte</button>
+    <h1>Tabla de Donaciones</h1>
+    <button id="realizar-corte-btn" onclick="habilitarBotones()">Realizar Corte</button>
     <table class="donaciones-table">
         <tr>
             <th>ID</th>
@@ -186,6 +203,7 @@
             <th>Unidad Académica</th>
             <th>Carrera</th>
             <th>Monto</th>
+            <th>Fecha</th>
             <th>Estado</th>
             <!-- en espera, aceptado-->
         </tr>
@@ -195,6 +213,7 @@
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
             <td>$100.00</td>
+            <td>2023-11-02</td>
             <td class="estado-en-espera">En espera</td>
         </tr>
         <tr>
@@ -203,16 +222,46 @@
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
             <td>$50.00</td>
+            <td>2023-11-02</td>
             <td class="estado-aceptado">Aceptado</td>
         </tr>
     </table>
-    <button id="aceptar-btn">Aceptar</button>
-    <button id="cancelar-btn">Cancelar</button>
+    <button id="aceptar-btn" disabled>Aceptar</button>
+    <button id="cancelar-btn" disabled onclick="deshabilitarBotones()">Cancelar</button>
 </section>
 
 <footer>
     <p>&copy; 2023 All rights reserved - UABC</p>
 </footer>
+
+<script>
+    function habilitarBotones() {
+        // Habilita los botones "Aceptar" y "Cancelar"
+        document.getElementById("aceptar-btn").disabled = false;
+        document.getElementById("cancelar-btn").disabled = false;
+        // Habilita la selección de filas en la tabla
+        let filas = document.querySelectorAll('.donaciones-table tr');
+        filas.forEach(fila => {
+            fila.addEventListener('click', seleccionarFila);
+        });
+    }
+    function deshabilitarBotones() {
+        // Habilita los botones "Aceptar" y "Cancelar"
+        document.getElementById("aceptar-btn").disabled = true;
+        document.getElementById("cancelar-btn").disabled = true;
+        // Deshabilita la selección de filas en la tabla
+        let filas = document.querySelectorAll('.donaciones-table tr');
+        filas.forEach(fila => {
+            fila.removeEventListener('click', seleccionarFila);
+            fila.classList.remove('selected');
+        });
+    }
+    function seleccionarFila() {
+        // Cambia la clase de la fila para indicar que está seleccionada
+        this.classList.toggle('selected');
+    }
+
+</script>
 
 </body>
 </html>

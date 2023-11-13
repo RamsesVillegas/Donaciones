@@ -76,7 +76,11 @@
         }
 
         section h1 {
-            font-size: 16px;
+            font-size: 24px;
+            color: #385835;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
 
         .cortes-table {
@@ -84,6 +88,7 @@
             border-collapse: collapse;
             margin-top: 20px;
             overflow-x: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
         }
 
         .cortes-table th, .cortes-table td {
@@ -155,13 +160,14 @@
 </nav>
 
 <section id="cortes">
-    <h1>Gestión de Cortes</h1>
+    <h1>Tabla de Cortes</h1>
     <table class="cortes-table">
         <tr>
             <th>ID</th>
             <th>Unidad Académica</th>
             <th>Carrera</th>
             <th>Monto Total</th>
+            <th>Fecha</th>
             <th>Estado</th>
             <!-- En espera, Enviado, Tranferido-->
         </tr>
@@ -170,6 +176,7 @@
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
             <td>$3500.00</td>
+            <td>2023-11-02</td>
             <td class="estado-en-espera">En espera</td>
         </tr>
         <tr>
@@ -177,6 +184,7 @@
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
             <td>$1200.00</td>
+            <td>2023-11-02</td>
             <td class="estado-enviado">Enviado</td>
         </tr>
         <tr>
@@ -184,6 +192,7 @@
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
             <td>$5000.00</td>
+            <td>2023-11-02</td>
             <td class="estado-transferido">Transferido</td>
         </tr>
     </table>
