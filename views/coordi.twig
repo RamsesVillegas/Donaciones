@@ -82,13 +82,15 @@
         .donaciones-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
         }
 
         .donaciones-table th, .donaciones-table td {
             border: 1px solid #385835;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            white-space: nowrap;
         }
 
         .donaciones-table th {
@@ -103,6 +105,14 @@
 
         .donaciones-table tr:nth-child(odd) {
             background-color: #e0e0e0;
+        }
+
+        .donaciones-table td.estado-aceptado {
+            color: #4caf50; /* Color verde para el estado "Aceptado" */
+        }
+
+        .donaciones-table td.estado-en-espera{
+            color: #ff9800; /* Color naranja para el estado "En espera" */
         }
 
         footer {
@@ -176,13 +186,16 @@
             <th>Unidad Académica</th>
             <th>Carrera</th>
             <th>Monto</th>
+            <th>Estado</th>
+            <!-- en espera, aceptado-->
         </tr>
         <tr>
             <td>1</td>
             <td>Donante 1</td>
             <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en electronica</td>
+            <td>Ingeniero en computación</td>
             <td>$100.00</td>
+            <td class="estado-en-espera">En espera</td>
         </tr>
         <tr>
             <td>2</td>
@@ -190,6 +203,7 @@
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
             <td>$50.00</td>
+            <td class="estado-aceptado">Aceptado</td>
         </tr>
     </table>
     <button id="aceptar-btn">Aceptar</button>

@@ -82,13 +82,15 @@
         .cortes-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
         }
 
         .cortes-table th, .cortes-table td {
             border: 1px solid #385835;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            white-space: nowrap;
         }
 
         .cortes-table th {
@@ -103,6 +105,18 @@
 
         .cortes-table tr:nth-child(odd) {
             background-color: #e0e0e0;
+        }
+
+        .cortes-table td.estado-en-espera {
+            color: #ff9800; /* Color naranja para el estado "En espera" */
+        }
+
+        .cortes-table td.estado-enviado {
+            color: #2196f3; /* Color azul para el estado "Enviado" */
+        }
+
+        .cortes-table td.estado-transferido {
+            color: #4caf50; /* Color verde para el estado "Transferido" */
         }
 
         footer {
@@ -148,18 +162,29 @@
             <th>Unidad Académica</th>
             <th>Carrera</th>
             <th>Monto Total</th>
+            <th>Estado</th>
+            <!-- En espera, Enviado, Tranferido-->
         </tr>
         <tr>
             <td>1</td>
             <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en electronica</td>
+            <td>Ingeniero en computación</td>
             <td>$3500.00</td>
+            <td class="estado-en-espera">En espera</td>
         </tr>
         <tr>
             <td>2</td>
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
             <td>$1200.00</td>
+            <td class="estado-enviado">Enviado</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Facultad de Ingenieria</td>
+            <td>Ingeniero en computación</td>
+            <td>$5000.00</td>
+            <td class="estado-transferido">Transferido</td>
         </tr>
     </table>
 </section>
