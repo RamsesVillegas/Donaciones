@@ -190,7 +190,7 @@
                         </label>
 
                         <!-- Punto 3: Datos para facturar (opcional) -->
-                        <h3 style="margin-top: 35px"><strong>3. Datos para facturar (opcional).</h3>
+                        <h3 style="margin-top: 35px"><strong>3. Sube tus datos para facturar (opcional).</h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
                         <input type="file" id="file-input-2" accept="image/*" />
@@ -201,11 +201,20 @@
                             <br />
                             <span id="file-label-2">O arrastra archivos aquí</span>
                         </label>
-                        <hr style="width: 400px; border: .5px solid #22461f;"> <!-- Línea separadora horizontal -->                        
+
+                        <!-- Punto 4: Verificar -->                        
+                        <h3 style="margin-top: 35px"><strong>4. Acepta y envía el comprobante.</h3>
+                        <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->                      
                         <div>
-                         <a href="/donar">
-                            <button style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;">Enviar comprobante</button>
-                        </a>
+                            <label>
+                                <input type="checkbox" id="acepto" name="acepto" style="transform: scale(1.5); margin-right: 10px;" onchange="verificarAcepto()">
+                                Acepto enviar mi comprobante de <br>pago y datos de facturación.
+                            </label>
+                        </div>
+                        <div style="margin-top: 15px; ">                                           
+                            <a href="/donar">
+                                <button id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled>Enviar comprobante</button>
+                            </a>
                         </div>
                 </div>
            </div>
@@ -272,6 +281,18 @@
         } else if (event.target.id === 'custom-button-2') {
             fileInput2.files = files;
             handleFileSelect2();
+        }
+    }
+
+        function verificarAcepto() {
+        var checkbox = document.getElementById("acepto");
+
+        if (checkbox.checked) {
+            // La casilla está marcada, permite al usuario presionar el botón
+            document.getElementById("enviarBoton").disabled = false;
+        } else {
+            // La casilla no está marcada, evita que el usuario presione el botón
+            document.getElementById("enviarBoton").disabled = true;
         }
     }
     </script>
