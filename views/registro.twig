@@ -111,13 +111,18 @@
                 })
             })
             .then(response => response.json())
-            .then(usuarioCreado => {
-                if (usuarioCreado) {
+            .then(respuesta => {
+                if (respuesta.creado) {
                     alert('Registro exitoso. Ahora puede iniciar sesión');
                     window.location.replace("http://localhost:3000/login");
                 }
                 else {
-                    alert('Ha sucedido un error al registrarse');
+                    if (respuesta.error == 'correo duplicado') {
+                        alert('El correo ingresado ya se encuentra registrado');
+                    }
+                    else {
+                        alert('Ha sucedido un error al registrarse');
+                    }
                 }
             }); 
 

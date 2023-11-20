@@ -19,8 +19,8 @@ app.use(session({
 }));
 
 // Configuración passport
-//app.use(miPassport.initialize());
-//app.use(miPassport.session());
+app.use(miPassport.initialize());
+app.use(miPassport.session());
 
 // Agrega una ruta para la vista del administrador
 app.get('/admin', (req, res) => {
@@ -69,10 +69,9 @@ app.post('/logout', (req, res, next) => {
   });
 });
 app.get('/donar', (req, res, next) => {
-  // if (req.isAuthenticated()) return next();
+  if (req.isAuthenticated()) return next();
 
-  //res.redirect('/donar');
-  next();
+  res.redirect('/login');
 }, sistemaController.donar);
 app.get('/registro', sistemaController.registro);
 
