@@ -1,5 +1,7 @@
 const passport = require('passport');
 const PassportLocal = require('passport-local').Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+require('dotenv').config();
 
 passport.use(new PassportLocal((username, password, done) => {
     fetch('http://localhost:3001/login', {
@@ -21,25 +23,24 @@ passport.use(new PassportLocal((username, password, done) => {
     });
 }));
 
+passport.use(new GoogleStrategy({
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: 'http://localhost:3000/login-google',
+        passReqToCallback: false
+    }, (request, accessToken, refreshToken, profile, done) => {
+        done(null, profile);
+    })
+);
+
 // Proceso de serialización
 passport.serializeUser((user, done) => {
-    console.log(user.id);
-    done(null, user.id);
+    done(null, user);
 });
 
 // Proceso de deserialización
-passport.deserializeUser((id, done) => {
-    fetch(`http://localhost:3001/usuario/${id}`)
-    .then(response => response.json())
-    .then(usuario => {
-        console.log(usuario);
-        if (usuario.id && usuario.nombre) {
-            return done(null, usuario);
-        }
-        else {
-            return done(null, false);
-        }
-    });
+passport.deserializeUser((user, done) => {
+    done(null, user);
 });
 
 module.exports = passport;

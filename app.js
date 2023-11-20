@@ -19,8 +19,8 @@ app.use(session({
 }));
 
 // Configuración passport
-//app.use(miPassport.initialize());
-//app.use(miPassport.session());
+app.use(miPassport.initialize());
+app.use(miPassport.session());
 
 // Agrega una ruta para la vista del administrador
 app.get('/admin', (req, res) => {
@@ -38,6 +38,11 @@ app.post('/login', miPassport.authenticate('local', {
   successRedirect: '/donar',
   failureRedirect: '/login'
 }));
+app.get('/login-google', miPassport.authenticate('google', {
+    scope: [ 'email', 'profile'],
+    successRedirect: '/donar',
+    failureRedirect: '/login'
+}));
 app.post('/logout', (req, res, next) => {
   res.clearCookie('connect.sid');
   req.logout((err) => {
@@ -49,14 +54,12 @@ app.post('/logout', (req, res, next) => {
   });
 });
 app.get('/donar', (req, res, next) => {
-  // if (req.isAuthenticated()) return next();
+  if (req.isAuthenticated()) return next();
 
-  //res.redirect('/donar');
-  next();
+  res.redirect('/login');
 }, sistemaController.donar);
 app.get('/registro', sistemaController.registro);
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
-    
