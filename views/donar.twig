@@ -176,11 +176,12 @@
                     </tr>
                     </table>
 
-                <!-- Punto 2: Sube tu comprobante de transferencia bancaria -->
+                    <form action="http://localhost:3001/procesar/imagen" method="POST" enctype="multipart/form-data">
+                        <!-- Punto 2: Sube tu comprobante de transferencia bancaria -->
                         <h3 style="margin-top: 35px"><strong>2. Sube tu comprobante de transferencia bancaria.</strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
-                        <input type="file" id="file-input-1" accept="image/*" />
+                        <input type="file" id="file-input-1" name="file-input-1" accept="image/*" />
                         <label for="file-input-1" id="custom-button-1" ondragover="handleDragOver(event)" ondragleave="handleDragLeave()" ondrop="handleDrop(event)">
                             Examina
                             <br />
@@ -212,10 +213,9 @@
                             </label>
                         </div>
                         <div style="margin-top: 15px; ">                                           
-                            <a href="/donar">
-                                <button id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled>Enviar comprobante</button>
-                            </a>
+                            <button type="submit" id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled>Enviar comprobante</button>
                         </div>
+                    </form>
                 </div>
            </div>
     </div>
