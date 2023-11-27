@@ -27,6 +27,21 @@ app.get('/admin', (req, res) => {
   res.render('admin.twig'); // Renderiza la vista del administrador
 });
 
+// Agrega una nueva ruta para la vista del perfil del administrador
+app.get('/admin/perfil', (req, res) => {
+  res.render('admin_perfil.twig'); // Renderiza la vista del perfil del administrador
+});
+
+// Agrega una nueva ruta para la vista de cortes del administrador
+app.get('/admin/cortes', (req, res) => {
+  res.render('admin_cortes.twig'); // Renderiza la vista de cortes del administrador
+});
+
+// Agrega una nueva ruta para la vista de usuarios del administrador
+app.get('/admin/usuarios', (req, res) => {
+  res.render('admin_usuarios.twig'); // Renderiza la vista de usuarios del administrador
+});
+
 // Agrega una ruta para la vista del coordinador
 app.get('/coordi', (req, res) => {
   res.render('coordi.twig'); // Renderiza la vista del coordinador

@@ -83,7 +83,7 @@
             padding-bottom: 10px;
         }
 
-        .donaciones-table {
+        .cortes-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
@@ -91,33 +91,37 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
         }
 
-        .donaciones-table th, .donaciones-table td {
+        .cortes-table th, .cortes-table td {
             border: 1px solid #385835;
             padding: 12px;
             text-align: center;
             white-space: nowrap;
         }
 
-        .donaciones-table th {
+        .cortes-table th {
             background-color: #385835;
             color: #fff;
             font-weight: bold;
         }
 
-        .donaciones-table tr:nth-child(even) {
+        .cortes-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        .donaciones-table tr:nth-child(odd) {
+        .cortes-table tr:nth-child(odd) {
             background-color: #e0e0e0;
         }
 
-        .donaciones-table td.estado-aceptado {
-            color: #4caf50; /* Color verde para el estado "Aceptado" */
+        .cortes-table td.estado-en-espera {
+            color: #ff9800; /* Color naranja para el estado "En espera" */
         }
 
-        .donaciones-table td.estado-en-espera{
-            color: #ff9800; /* Color naranja para el estado "En espera" */
+        .cortes-table td.estado-enviado {
+            color: #2196f3; /* Color azul para el estado "Enviado" */
+        }
+
+        .cortes-table td.estado-transferido {
+            color: #4caf50; /* Color verde para el estado "Transferido" */
         }
 
         footer {
@@ -126,23 +130,6 @@
             text-align: center;
             padding: 6px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Estilos para los botones */
-        button {
-            background-color: #febe10;
-            border-radius: 8px;
-            padding: 8px 16px;
-            color: #FFF;
-            font-size: 16px;
-            font-weight: bold;
-            text-shadow: 1px 1px 1px #000;
-            border: none;
-            cursor: pointer; /* Agrega un cursor al botón para indicar que es interactivo */
-        }
-
-        .donaciones-table tr.selected {
-            background-color: #febe10; /* Cambia el color de fondo de las filas seleccionadas */
         }
     </style>
 </head>
@@ -174,36 +161,45 @@
     </ul>
 </nav>
 
-<section id="donaciones">
-    <h1>Tabla de Donaciones</h1>
-    <table class="donaciones-table">
+<section id="cortes">
+    <h1>Tabla de Cortes</h1>
+    <table class="cortes-table">
         <tr>
             <th>ID</th>
-            <th>Nombre del Donante</th>
             <th>Unidad Académica</th>
             <th>Carrera</th>
-            <th>Monto</th>
+            <th>Donaciones</th>
+            <th>Monto Total</th>
             <th>Fecha</th>
             <th>Estado</th>
-            <!-- en espera, aceptado-->
+            <!-- En espera, Enviado, Tranferido-->
         </tr>
         <tr>
             <td>1</td>
-            <td>Donante 1</td>
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
-            <td>$100.00</td>
+            <td>1, 2, 3</td>
+            <td>$3500.00</td>
             <td>2023-11-02</td>
             <td class="estado-en-espera">En espera</td>
         </tr>
         <tr>
             <td>2</td>
-            <td>Donante 2</td>
             <td>Facultad de Ingenieria</td>
             <td>Ingeniero en computación</td>
-            <td>$50.00</td>
+            <td>4, 5, 6</td>
+            <td>$1200.00</td>
             <td>2023-11-02</td>
-            <td class="estado-aceptado">Aceptado</td>
+            <td class="estado-enviado">Enviado</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Facultad de Ingenieria</td>
+            <td>Ingeniero en computación</td>
+            <td>7, 8, 9</td>
+            <td>$5000.00</td>
+            <td>2023-11-02</td>
+            <td class="estado-transferido">Transferido</td>
         </tr>
     </table>
 </section>

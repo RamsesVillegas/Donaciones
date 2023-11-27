@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #fff;
+            background-color: #f7f7f7;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -41,7 +41,7 @@
             color: #fff;
             padding: 6px;
             display: flex;
-            justify-content: space-between;
+            justify-content: space between;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
@@ -70,9 +70,9 @@
         }
 
         section {
-            padding: 10px;
+            padding: 20px;
             flex: 1;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añadido: sombra a la sección de perfil */
         }
 
         section h1 {
@@ -83,41 +83,33 @@
             padding-bottom: 10px;
         }
 
-        .donaciones-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            overflow-x: auto;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
+        .perfil-info {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadido: sombra al contenedor de información del perfil */
+
         }
 
-        .donaciones-table th, .donaciones-table td {
-            border: 1px solid #385835;
-            padding: 12px;
-            text-align: center;
-            white-space: nowrap;
+        .perfil-item {
+            margin: 15px 0;
+            padding: 10px; /* Añadido para cuadro con fondo */
+            border: 1px solid #ddd; /* Añadido para cuadro con fondo */
+            border-radius: 8px; /* Añadido para cuadro con fondo */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añadido: sombra al contenedor de información del perfil */
         }
 
-        .donaciones-table th {
-            background-color: #385835;
-            color: #fff;
+        .perfil-item strong {
+            color: #385835;
             font-weight: bold;
+            display: block;
+            font-size: 18px;
         }
 
-        .donaciones-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        .donaciones-table tr:nth-child(odd) {
-            background-color: #e0e0e0;
-        }
-
-        .donaciones-table td.estado-aceptado {
-            color: #4caf50; /* Color verde para el estado "Aceptado" */
-        }
-
-        .donaciones-table td.estado-en-espera{
-            color: #ff9800; /* Color naranja para el estado "En espera" */
+        .perfil-item span {
+            color: #000;
+            font-size: 16px;
         }
 
         footer {
@@ -126,23 +118,6 @@
             text-align: center;
             padding: 6px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Estilos para los botones */
-        button {
-            background-color: #febe10;
-            border-radius: 8px;
-            padding: 8px 16px;
-            color: #FFF;
-            font-size: 16px;
-            font-weight: bold;
-            text-shadow: 1px 1px 1px #000;
-            border: none;
-            cursor: pointer; /* Agrega un cursor al botón para indicar que es interactivo */
-        }
-
-        .donaciones-table tr.selected {
-            background-color: #febe10; /* Cambia el color de fondo de las filas seleccionadas */
         }
     </style>
 </head>
@@ -161,11 +136,11 @@
 </header>
 
 
-<nav>
+<nav style="background-color: #385835; justify-content: space-between;">
     <div style="display: flex; align-items: center;">
-        <p style="margin-right: 12px; font-weight: bold; font-size: 14px;">Nombre de Usuario</p>
+        <p style="margin-left: 12px; font-weight: bold; font-size: 14px;">Nombre de Coordinador</p>
     </div>
-    <ul style="list-style: none; display: flex; justify-content: flex-end;">
+    <ul style="list-style: none; display: flex;">
         <li><a href="/admin/perfil">PERFIL</a></li>
         <li><a href="/admin/usuarios">CONSULTAR USUARIOS</a></li>
         <li><a href="/admin">GESTIÓN DE DONACIONES</a></li>
@@ -174,38 +149,35 @@
     </ul>
 </nav>
 
-<section id="donaciones">
-    <h1>Tabla de Donaciones</h1>
-    <table class="donaciones-table">
-        <tr>
-            <th>ID</th>
-            <th>Nombre del Donante</th>
-            <th>Unidad Académica</th>
-            <th>Carrera</th>
-            <th>Monto</th>
-            <th>Fecha</th>
-            <th>Estado</th>
-            <!-- en espera, aceptado-->
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Donante 1</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>$100.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-en-espera">En espera</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Donante 2</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>$50.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-aceptado">Aceptado</td>
-        </tr>
-    </table>
+<section id="perfil">
+    <h1>Perfil del Administrador de la Facultad</h1>
+    <div class="perfil-info">
+        <div class="perfil-item">
+            <div style="display: flex; align-items: center;">
+                <div style="flex: 1;">
+                    <img src="https://lh7-us.googleusercontent.com/X7wnhNLlD_lfkyQ9ETBRYvFT7fTuPLiUjOkJLYDvpgBqjKOQyq5mSTj-SNx58kkxdxsamwjTvgHVkWUV7zhOwh0xbnUxfhtrRbPCemh1K7KWEsbMgNSnIEdj1YMSd3W5wYJrPPQpSyEtq8vuPSAKGuA=s800" alt="Foto de perfil" style="max-width: 150px; border-radius: 50%;" />
+                </div>
+                <div style="flex: 3; padding-left: 20px;">
+                    <div class="perfil-item">
+                        <strong>ID:</strong>
+                        <span>1</span>
+                    </div>
+                    <div class="perfil-item">
+                        <strong>Nombre:</strong>
+                        <span>Administrador 1</span>
+                    </div>
+                    <div class="perfil-item">
+                        <strong>Unidad Académica:</strong>
+                        <span>Facultad de Ingenieria</span>
+                    </div>
+                    <div class="perfil-item">
+                        <strong>Correo:</strong>
+                        <span>admin1@uabc.edu.mx</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <footer>
