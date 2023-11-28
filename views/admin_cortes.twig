@@ -131,6 +131,24 @@
             padding: 6px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
+
+        .cortes-table th:nth-last-child(2), .cortes-table td:nth-last-child(2) {
+            /* Añadido: Estilo específico para la columna de botones */
+            white-space: nowrap;
+        }
+
+        .cortes-table button {
+            /* Añadido: Estilo para los botones */
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cortes-table button.estado-en-espera { background-color: #ff9800; color: #fff; }
+        .cortes-table button.estado-enviado { background-color: #2196f3; color: #fff; }
+        .cortes-table button.estado-transferido { background-color: #4caf50; color: #fff; }
+
     </style>
 </head>
 <body>
@@ -172,7 +190,8 @@
             <th>Monto Total</th>
             <th>Fecha</th>
             <th>Estado</th>
-            <!-- En espera, Enviado, Tranferido-->
+            <!-- En espera, Enviado, Tranferido -->
+             <th>Acciones</th> <!-- Añadido: Columna para botón de cambiar estado -->
         </tr>
         <tr>
             <td>1</td>
@@ -182,6 +201,7 @@
             <td>$3500.00</td>
             <td>2023-11-02</td>
             <td class="estado-en-espera">En espera</td>
+            <td><button class="cambiar-estado" data-id="1">Cambiar Estado</button></td> <!-- Añadido: Botón para cambiar el estado -->
         </tr>
         <tr>
             <td>2</td>
@@ -191,6 +211,7 @@
             <td>$1200.00</td>
             <td>2023-11-02</td>
             <td class="estado-enviado">Enviado</td>
+            <td><button class="cambiar-estado" data-id="2">Cambiar Estado</button></td> <!-- Añadido: Botón para cambiar el estado -->
         </tr>
         <tr>
             <td>3</td>
@@ -200,6 +221,7 @@
             <td>$5000.00</td>
             <td>2023-11-02</td>
             <td class="estado-transferido">Transferido</td>
+            <td><button class="cambiar-estado" data-id="3">Cambiar Estado</button></td> <!-- Añadido: Botón para cambiar el estado -->
         </tr>
     </table>
 </section>
@@ -207,6 +229,58 @@
 <footer>
     <p>&copy; 2023 All rights reserved - UABC</p>
 </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.cambiar-estado');
+        const dialog = document.getElementById('cambioEstadoDialog');
+        const nuevoEstadoSelect = document.getElementById('nuevoEstadoSelect');
+        let currentCorteId;
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                currentCorteId = this.getAttribute('data-id');
+                dialog.showModal();
+            });
+        });
+
+        document.getElementById('cancelarBoton').addEventListener('click', function () {
+            dialog.close();
+        });
+
+        document.getElementById('aceptarBoton').addEventListener('click', function () {
+            const nuevoEstado = nuevoEstadoSelect.value;
+            cambiarEstadoCorte(currentCorteId, nuevoEstado);
+            dialog.close();
+        });
+
+        function cambiarEstadoCorte(corteId, nuevoEstado) {
+            const estadoCelda = document.querySelector(`.cortes-table button[data-id="${corteId}"]`).parentNode.previousElementSibling;
+            estadoCelda.textContent = nuevoEstado;
+
+            // También puedes cambiar la clase según el nuevo estado
+            estadoCelda.classList.remove('estado-en-espera', 'estado-enviado', 'estado-transferido');
+            estadoCelda.classList.add(`estado-${nuevoEstado.toLowerCase()}`);
+        }
+    });
+</script>
+
+<dialog id="cambioEstadoDialog">
+    <form method="dialog">
+        <label>
+            Nuevo Estado:
+            <select id="nuevoEstadoSelect">
+                <option value="En espera">En espera</option>
+                <option value="Enviado">Enviado</option>
+                <option value="Transferido">Transferido</option>
+            </select>
+        </label>
+        <menu>
+            <button id="cancelarBoton">Cancelar</button>
+            <button id="aceptarBoton">Aceptar</button>
+        </menu>
+    </form>
+</dialog>
 
 </body>
 </html>
