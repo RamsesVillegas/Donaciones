@@ -13,7 +13,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            background-color: #fff; /* Cambié el fondo a blanco */
+            background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
@@ -76,34 +76,48 @@
         }
 
         section h1 {
-            font-size: 16px;
+            font-size: 24px;
+            color: #385835;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
 
-        /* Agrega estos estilos a tu archivo CSS existente */
-        .user-table {
+        .donaciones-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
         }
 
-        .user-table th, .user-table td {
+        .donaciones-table th, .donaciones-table td {
             border: 1px solid #385835;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
+            white-space: nowrap;
         }
 
-        .user-table th {
+        .donaciones-table th {
             background-color: #385835;
             color: #fff;
             font-weight: bold;
         }
 
-        .user-table tr:nth-child(even) {
+        .donaciones-table tr:nth-child(even) {
             background-color: #f2f2f2;
         }
 
-        .user-table tr:nth-child(odd) {
+        .donaciones-table tr:nth-child(odd) {
             background-color: #e0e0e0;
+        }
+
+        .donaciones-table td.estado-aceptado {
+            color: #4caf50; /* Color verde para el estado "Aceptado" */
+        }
+
+        .donaciones-table td.estado-en-espera{
+            color: #ff9800; /* Color naranja para el estado "En espera" */
         }
 
         footer {
@@ -112,6 +126,44 @@
             text-align: center;
             padding: 6px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos para los botones */
+        button {
+            background-color: #febe10;
+            border-radius: 8px;
+            padding: 8px 16px;
+            color: #FFF;
+            font-size: 16px;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #000;
+            border: none;
+            cursor: pointer; /* Agrega un cursor al botón para indicar que es interactivo */
+        }
+
+         /* Estilos adicionales para los botones */
+        #realizar-corte-btn {
+            margin-bottom: 10px;
+            margin-left: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
+        }
+
+        #aceptar-btn,
+        #cancelar-btn {
+            margin-top: 10px;
+            margin-right: 10px;
+            align-self: flex-end;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Añadido: sombra a la tabla de donaciones */
+        }
+
+        button:disabled {
+            background-color: #ccc; /* Cambia el color de fondo de los botones deshabilitados */
+            cursor: not-allowed; /* Cambia el cursor para indicar que el botón no está disponible */
+            opacity: 0.7; /* Cambia la opacidad para indicar visualmente que el botón está deshabilitado */
+        }
+
+        .donaciones-table tr.selected {
+            background-color: #febe10; /* Cambia el color de fondo de las filas seleccionadas */
         }
     </style>
 </head>
@@ -144,8 +196,8 @@
 </nav>
 
 <section id="usuarios">
-    <h1>Gestión de Usuarios</h1>
-    <table class="user-table">
+    <h1>Tabla de Usuarios</h1>
+    <table class="donaciones-table">
     <tr>
         <th>ID</th>
         <th>Nombre</th>
