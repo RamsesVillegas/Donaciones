@@ -29,7 +29,22 @@ passport.use(new GoogleStrategy({
         callbackURL: 'http://localhost:3000/login-google',
         passReqToCallback: false
     }, (request, accessToken, refreshToken, profile, done) => {
-        done(null, profile);
+        fetch('http://localhost:3001/login/google', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify({
+                email: profile._json.email
+            })
+        })
+        .then(response => response.json())
+        .then(usuario => {
+            if (usuario.id && usuario.nombre) {
+                return done(null, usuario);
+            }
+            else {
+                return done(null, false);
+            }
+        });
     })
 );
 

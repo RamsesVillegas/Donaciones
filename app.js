@@ -41,7 +41,7 @@ app.post('/login', miPassport.authenticate('local', {
 app.get('/login-google', miPassport.authenticate('google', {
     scope: [ 'email', 'profile'],
     successRedirect: '/donar',
-    failureRedirect: '/login'
+    failureRedirect: '/registro'
 }));
 app.post('/logout', (req, res, next) => {
   res.clearCookie('connect.sid');
