@@ -6,6 +6,7 @@
     <title>Sistema de donaciones UABC</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="signin.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <style>
         body {
         font-family: "Open Sans", sans-serif;
@@ -60,11 +61,52 @@
         z-index: 1000;
         }
 
-        #g-signin {
-            display: inline-block;
+        .google-btn {
+            width: 60%;
+            height: 42px;
+            background-color: #4285f4;
+            border-radius: 2px;
+            box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+            
+            .google-icon-wrapper {
+                position: absolute;
+                margin-top: 1px;
+                margin-left: 1px;
+                width: 40px;
+                height: 40px;
+                border-radius: 2px;
+                background-color: #FFFFFF;
+            }
+            .google-icon {
+                margin-top: 11px;
+                width: 18px;
+                height: 18px;
+            }
+            .btn-text {
+                float: left;
+                margin: 11px 11px 0 60px;
+                color: #FFFFFF;
+                font-size: 14px;
+                letter-spacing: 0.2px;
+                font-family: "Roboto";
+            }
+            &:hover {
+                box-shadow: 0 0 6px #4285f4;
+            }
+            &:active {
+                background: #1669F2;
+            }
         }
 
+        .hidden {
+            visibility: hidden;
+            height: 0;
+            width: 0;
+        }
+
+        @import url(https://fonts.googleapis.com/css?family=Roboto:500);
     </style>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
   <header>
@@ -89,8 +131,14 @@
                 <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: 1px 1px 1px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
                     <h2><strong>Ingresa tu información</strong></h2>
 
-                    <div>
-                        <div id="g-signin"></div>
+                    <div style="position: relative; left: 20%">
+                        <div class="google-btn">
+                            <div class="google-icon-wrapper">
+                                <img class="google-icon" src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_"G"_logo.svg/24px-Google_"G"_logo.svg.png?20230822192911' />
+                            </div>
+                            <p class="btn-text"><b>Iniciar sesión con Google<b><p>
+                        </div>
+                        <form id="google-login-form" class="hidden" action="/login-google" method="GET"></form>
                     </div>
 
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
@@ -123,56 +171,11 @@
   </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
     <script>
-        // Inicio sesión Google
-        function onSuccess(googleUser) {
-            const profile = googleUser.getBasicProfile();
-            console.log('ID: ' + profile.getId());
-            console.log('Name: ' + profile.getName());
-            console.log('Image URL: ' + profile.getImageUrl());
-            console.log('Email: ' + profile.getEmail());
-
-            if (profile.getId()) {
-                window.location.replace("http://localhost:3000/donar");
-            }
-
-            signOut();
-        }
-
-        function onFailure(error) {
-            console.log(error);
-            signOut();
-        }
-
-        function renderButton() {
-            gapi.load('auth2', function() {
-                gapi.auth2.init(
-                {
-                    client_id: '884210632025-ldubuld7sc0pul2qcremtsccp7bj9tgb.apps.googleusercontent.com',
-                    plugin_name: 'g_auth',
-                }
-                );
-            });
-
-            gapi.signin2.render('g-signin', {
-                scope: 'profile email',
-                width: 300,
-                height: 50,
-                longtitle: true,
-                theme: 'dark',
-                onsuccess: onSuccess,
-                onfailure: onFailure,
-            });
-        }
-
-        function signOut() {
-            const auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-                console.log('User signed out.');
-            });
-        }
+        $('.google-btn').click(function () {
+            $('#google-login-form').trigger('submit');
+        });
     </script>
 </body>
 </html>

@@ -73,6 +73,11 @@ app.post('/login', miPassport.authenticate('local', {
   successRedirect: '/donar',
   failureRedirect: '/login'
 }));
+app.get('/login-google', miPassport.authenticate('google', {
+    scope: [ 'email', 'profile'],
+    successRedirect: '/donar',
+    failureRedirect: '/registro'
+}));
 app.post('/logout', (req, res, next) => {
   res.clearCookie('connect.sid');
   req.logout((err) => {
@@ -93,4 +98,3 @@ app.get('/registro', sistemaController.registro);
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
-    
