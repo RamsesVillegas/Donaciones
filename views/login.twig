@@ -108,6 +108,29 @@
         }
 
         @import url(https://fonts.googleapis.com/css?family=Roboto:500);
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #febe10;
+            border-radius: 20px;
+            padding: 12px;
+            color: #FFF;
+            width: 100%;
+            font-size: 23px;
+            font-weight: bold;
+            text-shadow: 1px 1px 1px #000;
+            border: 0;
+        }
     </style>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
@@ -147,16 +170,19 @@
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
 
                     <form action="/login" method="POST">
-                        <input style="border-radius: 5px; margin-top: 30px; padding: 10px; width: 80%;" type="email" id="email" name="username" placeholder="nombre@dominio.com" required>
-                        
-                        <br>
-                        
-                        <input style="border-radius: 5px; margin-top: 20px; padding: 10px; width: 80%;" type="password" id="password" name="password" placeholder="Contraseña" required>
-                        
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="username" placeholder="nombre@dominio.com" required>
+
                         <br>
 
-                        <button type="submit" style="background-color: #febe10; border-radius: 20px; margin-top: 30px; padding: 12px; color: #FFF; width: 60%; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000;border: 0px solid #ff0000;">Iniciar sesión</button>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+
+                        <br>
+
+                        <button type="submit">Iniciar sesión</button>
                     </form>
+
 
                    <a href="url_de_tu_pagina_de_recuperacion.html" style="display: block; text-align: center; margin-top: 20px; color: #FFF; text-decoration: underline;">¿Has olvidado la contraseña?</a>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
