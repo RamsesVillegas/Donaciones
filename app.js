@@ -5,6 +5,7 @@ const session = require('express-session');
 
 const miPassport = require('./miPassport');
 const sistemaController = require('./controllers/sistema');
+const donadorController = require('./controllers/donador');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -21,46 +22,6 @@ app.use(session({
 // Configuración passport
 app.use(miPassport.initialize());
 app.use(miPassport.session());
-
-// Agrega una ruta para la vista del administrador
-app.get('/admin', (req, res) => {
-  res.render('admin.twig'); // Renderiza la vista del administrador
-});
-
-// Agrega una nueva ruta para la vista del perfil del administrador
-app.get('/admin/perfil', (req, res) => {
-  res.render('admin_perfil.twig'); // Renderiza la vista del perfil del administrador
-});
-
-// Agrega una nueva ruta para la vista de cortes del administrador
-app.get('/admin/cortes', (req, res) => {
-  res.render('admin_cortes.twig'); // Renderiza la vista de cortes del administrador
-});
-
-// Agrega una nueva ruta para la vista de usuarios del administrador
-app.get('/admin/usuarios', (req, res) => {
-  res.render('admin_usuarios.twig'); // Renderiza la vista de usuarios del administrador
-});
-
-// Agrega una ruta para la vista del coordinador
-app.get('/coordi', (req, res) => {
-  res.render('coordi.twig'); // Renderiza la vista del coordinador
-});
-
-// Agrega una nueva ruta para la vista del perfil del coordinador
-app.get('/coordi/perfil', (req, res) => {
-  res.render('coordi_perfil.twig'); // Renderiza la vista del perfil del coordinador
-});
-
-// Agrega una nueva ruta para la vista del perfil del coordinador
-app.get('/coordi/cortes', (req, res) => {
-  res.render('coordi_cortes.twig'); // Renderiza la vista del perfil del coordinador
-});
-
-// Agrega una ruta para la vista del donador
-app.get('/donador', (req, res) => {
-  res.render('donador.twig'); // Renderiza la vista del donador
-});
 
 // Configurar el motor de plantillas Twig
 app.set('views', './views');
@@ -94,6 +55,17 @@ app.get('/donar', (req, res, next) => {
   res.redirect('/login');
 }, sistemaController.donar);
 app.get('/registro', sistemaController.registro);
+
+// Rutas coordinador
+const coordinadorRouter = require('./routes/coordinador');
+app.use('/coordi', coordinadorRouter);
+
+// Rutas administrador
+const administradorRouter = require('./routes/administrador');
+app.use('/admin', administradorRouter);
+
+// Rutas donador
+app.get('/donador', donadorController.perfil);
 
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
