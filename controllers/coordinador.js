@@ -7,7 +7,11 @@ const donaciones = (req, res) => {
 }
 
 const perfil = (req, res) => {
-    res.render('coordi_perfil');
+    fetch('http://localhost:3001/usuario/coordi/' + req.user.id)
+    .then(response => response.json())
+    .then(coordinador => {
+        res.render('coordi_perfil', { coordinador });
+    });
 }
 
 const cortes = (req, res) => {
