@@ -11,7 +11,11 @@ const perfil = (req, res) => {
 }
 
 const cortes = (req, res) => {
-    res.render('coordi_cortes');
+    fetch('http://localhost:3001/cortes')
+    .then(response => response.json())
+    .then(cortes => {
+        res.render('coordi_cortes', { cortes });
+    });
 }
 
 module.exports.donaciones = donaciones;

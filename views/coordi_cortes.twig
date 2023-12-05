@@ -163,42 +163,25 @@
     <h1>Tabla de Cortes</h1>
     <table class="cortes-table">
         <tr>
-            <th>ID</th>
-            <th>Unidad Académica</th>
+            <th>Id</th>
             <th>Carrera</th>
-            <th>Donaciones</th>
+            {# <th>Donaciones</th> #}
             <th>Monto Total</th>
-            <th>Fecha</th>
+            <th>Fecha de corte</th>
+            <th>Última actualización</th>
             <th>Estado</th>
             <!-- En espera, Enviado, Tranferido-->
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>1, 2, 3</td>
-            <td>$3500.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-en-espera">En espera</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>4, 5, 6</td>
-            <td>$1200.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-enviado">Enviado</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>7, 8, 9</td>
-            <td>$5000.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-transferido">Transferido</td>
-        </tr>
+        {% for corte in cortes %}
+            <tr>
+                <td>{{ corte.id }}</td>
+                <td>{{ corte.carrera }}</td>
+                <td>{{ corte.monto_total }}</td>
+                <td>{{ corte.fecha_corte }}</td>
+                <td>{{ corte.ultima_actualizacion }}</td>
+                <td>{{ corte.estado }}</td>
+            </tr>
+        {% endfor %}
     </table>
 </section>
 
