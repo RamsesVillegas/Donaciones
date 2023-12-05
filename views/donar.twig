@@ -56,6 +56,22 @@
             margin-top: 30px;
         }
 
+        select {
+            width: 50%; 
+            text-align: center;
+            height: 40px;
+            border: 3px solid #45a049;
+            background-color: #22461f;
+            border-radius: 20px;
+            color: #ffffff;
+        }
+
+        option {
+            background-color: #45a049;
+            color: #ffffff;
+            border-radius: 20px;
+        }
+
         table td {
             padding: 5.5px;
             vertical-align: center;
@@ -112,6 +128,12 @@
             #custom-button-2.dragover {
                 border: 3px dashed #2f6d31;
             }
+
+            .boton-deshabilitado {
+                background-color: #ccc !important;
+                cursor: not-allowed;
+                opacity: 0.5;
+            }
     </style>
 </head>
 <body>
@@ -135,7 +157,7 @@
   <div style="background-color: rgba(214, 227, 213, 0.5); padding: 100px;">
      <div style="display: flex; justify-content: center; margin-top: 50px; ">
                 <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
-                    <h3><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
+                    <h4><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
                     <table>
                     <tr>
@@ -176,9 +198,21 @@
                     </tr>
                     </table>
 
+                    <h4 style="margin-top: 45px"><strong>2. Selecciona una carrera de ingeniería que deseas donar:</strong></h3>
+                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
+
+                    <select id="carreras" name="carreras">
+                        <option value="civil">Ingeniería en Computación</option>
+                        <option value="civil">Ingeniería Civil</option>
+                        <option value="informatica">Ingeniería Informática</option>
+                        <option value="mecanica">Ingeniería Mecánica</option>
+                        <option value="electrica">Ingeniería Eléctrica</option>
+                        <option value="quimica">Ingeniería Química</option>
+                    </select>
+
                     <form action="http://localhost:3001/procesar/imagen" method="POST" enctype="multipart/form-data">
                         <!-- Punto 2: Sube tu comprobante de transferencia bancaria -->
-                        <h3 style="margin-top: 35px"><strong>2. Sube tu comprobante de transferencia bancaria.</strong></h3>
+                        <h4 style="margin-top: 45px"><strong>3. Sube tu comprobante de transferencia bancaria.</strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
                         <input type="file" id="file-input-1" name="file-input-1" accept="image/*" />
@@ -191,7 +225,7 @@
                         </label>
 
                         <!-- Punto 3: Datos para facturar (opcional) -->
-                        <h3 style="margin-top: 35px"><strong>3. Sube tus datos para facturar (opcional).</h3>
+                        <h4 style="margin-top: 45px"><strong>4. Sube tus datos para facturar (opcional).</h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
                         <input type="file" id="file-input-2" accept="image/*" />
@@ -204,7 +238,7 @@
                         </label>
 
                         <!-- Punto 4: Verificar -->                        
-                        <h3 style="margin-top: 35px"><strong>4. Acepta y envía el comprobante.</h3>
+                        <h4 style="margin-top: 45px"><strong>5. Acepta y envía el comprobante.</h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->                      
                         <div>
                             <label>
@@ -212,8 +246,8 @@
                                 Acepto enviar mi comprobante de <br>pago y datos de facturación.
                             </label>
                         </div>
-                        <div style="margin-top: 15px; ">                                           
-                            <button type="submit" id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled>Enviar comprobante</button>
+                        <div style="margin-top: 35px; ">                                           
+                            <button type="submit" id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled class="boton-deshabilitado">Enviar comprobante</button>
                         </div>
                     </form>
                 </div>
@@ -284,15 +318,18 @@
         }
     }
 
-        function verificarAcepto() {
+    function verificarAcepto() {
         var checkbox = document.getElementById("acepto");
+        var enviarBoton = document.getElementById("enviarBoton");
 
         if (checkbox.checked) {
             // La casilla está marcada, permite al usuario presionar el botón
-            document.getElementById("enviarBoton").disabled = false;
+            enviarBoton.disabled = false;
+            enviarBoton.classList.remove("boton-deshabilitado");
         } else {
             // La casilla no está marcada, evita que el usuario presione el botón
-            document.getElementById("enviarBoton").disabled = true;
+            enviarBoton.disabled = true;
+            enviarBoton.classList.add("boton-deshabilitado");
         }
     }
     </script>
