@@ -1,5 +1,9 @@
 const donaciones = (req, res) => {
-    res.render('admin');
+    fetch('http://localhost:3001/donacionesAdmin')
+    .then(response => response.json())
+    .then(donaciones => {
+        res.render('admin', { donaciones });
+    });
 }
 
 const perfil = (req, res) => {
@@ -7,7 +11,11 @@ const perfil = (req, res) => {
 }
 
 const cortes = (req, res) => {
-    res.render('admin_cortes');
+    fetch('http://localhost:3001/CortesAdmin')
+    .then(response => response.json())
+    .then(cortes => {
+        res.render('admin_cortes', { cortes });
+    });
 }
 
 const usuarios = (req, res) => {

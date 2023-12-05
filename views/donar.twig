@@ -212,68 +212,82 @@
                 <div id="progress-bar"></div>
             </div>
                 <!-- Contenido de los pasos -->
-                <div class="content" id="step-1-content" style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
-                <h4><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
-                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
-                    <table>
-                    <tr>
-                        <td><strong>Banco:</strong></td>
-                        <td>Banco Santander (México) S.A.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Beneficiario:</strong></td>
-                        <td>Universidad Autónoma de Baja California</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Cuenta:</strong></td>
-                        <td>65501399913</td>
-                    </tr>
-                    <tr>
-                        <td><strong>CLABE Interbancaria:</strong></td>
-                        <td>014020655013999134</td>
-                    </tr>
-                    <tr>
-                        <td><strong>TAX ID:</strong></td>
-                        <td>UAE5702287S5</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Código Swift:</strong></td>
-                        <td>BMSXMXMM</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Domicilio:</strong></td>
-                        <td>Avenida Álvaro Obregón Sin Número Colonia Nueva C.P.21100</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ciudad:</strong></td>
-                        <td>Mexicali, Baja California</td>
-                    </tr>
-                    <tr>
-                        <td><strong>País:</strong></td>
-                        <td>México</td>
-                    </tr>
-                    </table>
+                    <div class="content" id="step-1-content" style="margin-bottom: 60px; background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
+                        <h4><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
+                        <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
+                        <table>
+                        <tr>
+                            <td><strong>Banco:</strong></td>
+                            <td>Banco Santander (México) S.A.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Beneficiario:</strong></td>
+                            <td>Universidad Autónoma de Baja California</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cuenta:</strong></td>
+                            <td>65501399913</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CLABE Interbancaria:</strong></td>
+                            <td>014020655013999134</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TAX ID:</strong></td>
+                            <td>UAE5702287S5</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Código Swift:</strong></td>
+                            <td>BMSXMXMM</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Domicilio:</strong></td>
+                            <td>Avenida Álvaro Obregón Sin Número Colonia Nueva C.P.21100</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ciudad:</strong></td>
+                            <td>Mexicali, Baja California</td>
+                        </tr>
+                        <tr>
+                            <td><strong>País:</strong></td>
+                            <td>México</td>
+                        </tr>
+                        </table>
+                        <div style="margin-top: 20px;">
+                        <button onclick="changeStep(2)" class="btn btn-primary">Siguiente</button>
+                        </div>
                     </div>
 
                     <!-- Punto 2  -->
-                    <div class="content" id="step-2-content" style="background-color: #22461f; margin-bottom: 200px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
-                    <h4 style="margin-top: 45px"><strong>2. Selecciona una carrera de ingeniería que deseas donar:</strong></h3>
-                    <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
+                    <div class="content" id="step-2-content" style="background-color: #22461f; margin-bottom: 410px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
+                        <h4 style="margin-top: 45px"><strong>2. Selecciona una carrera de ingeniería que deseas donar:</strong></h3>
+                        <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
 
-                    <select id="carreras" name="carreras">
-                        <option value="civil">Ingeniería en Computación</option>
-                        <option value="civil">Ingeniería Civil</option>
-                        <option value="informatica">Ingeniería Informática</option>
-                        <option value="mecanica">Ingeniería Mecánica</option>
-                        <option value="electrica">Ingeniería Eléctrica</option>
-                        <option value="quimica">Ingeniería Química</option>
-                    </select>
+                        <select id="carreras" name="carreras">
+                            <option value=1>LIC. en Sistemas Computacionales</option>
+                            <option value=2>Bioingeniería</option>
+                            <option value=3>Ing. Aeroespacial</option>
+                            <option value=4>Ing. Civil</option>
+                            <option value=5>Ing. en Computación</option>
+                            <option value=6>Ing. Electrónica</option>
+                            <option value=7>Ing. Eléctrica</option>
+                            <option value=8>Ing. en Energías Renovables</option>
+                            <option value=9>Ing. Industrial</option>
+                            <option value=10>Ing. Mecánica</option>
+                            <option value=11>Ing. Mecatrónica</option>
+                            <option value=12>Ing. en Semiconductores y Microelectrónica</option>
+                        </select>
+                        <p></p>
+                        <div style="margin-top: 20px;">
+                        <button onclick="changeStep(1)" class="btn btn-secondary">Atrás</button>
+                        <button onclick="changeStep(3)" class="btn btn-primary">Siguiente</button>
+                        </div>
                     </div>
 
+                    <!-- Punto 3 -->
+                    <div class="content" id="step-3-content" style="margin-bottom: 60px; background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
                     <form action="http://localhost:3001/procesar/imagen" method="POST" enctype="multipart/form-data">
-                        <!-- Punto 3 -->
-                       <div class="content" id="step-3-content" style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
-                        <h4 style="margin-top: 45px"><strong>3. Sube tu comprobante de transferencia bancaria.</strong></h3>
+                    <h4 style="margin-top: 45px"><strong>3. Sube tu comprobante de transferencia bancaria.</strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
                         <input type="file" id="file-input-1" name="file-input-1" accept="image/*" />
@@ -296,11 +310,15 @@
                             <br />
                             <span id="file-label-2">O arrastra archivos aquí</span>
                         </label>
-                        </form>
+                    </form>
+                        <div style="margin-top: 20px;">
+                        <button onclick="changeStep(2)" class="btn btn-secondary">Atrás</button>
+                        <button onclick="changeStep(4)" class="btn btn-primary">Siguiente</button>
                         </div>
+                    </div>
 
                         <!-- Punto 4: Verificar -->
-                       <div class="content" id="step-4-content" style="background-color: #22461f; margin-bottom: 150px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">                  
+                       <div class="content" id="step-4-content" style="background-color: #22461f; margin-bottom: 320px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">                  
                             <h4 style="margin-top: 45px"><strong>5. Acepta y envía el comprobante.</strong></h4>
                             <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->                      
                             <div>
@@ -312,9 +330,11 @@
                             <div style="margin-top: 35px; ">                                           
                                 <button type="submit" id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled class="boton-deshabilitado">Enviar comprobante</button>
                             </div>
+                            <div style="margin-top: 20px;">
+                            <button onclick="changeStep(3)" class="btn btn-secondary">Atrás</button>
+                            </div>
                         </div>
-
-                        </div>
+                    </div>
     </div>
 </div>
     <footer>
@@ -429,11 +449,20 @@
                 currentStep = step;
 
                 // Animate progress bar
-                const progress = ((currentStep - 1) / (steps.length - 1)) * 100;
-                progressBar.style.background = `linear-gradient(to right, #22461f ${progress}%, #f0f0f0 ${progress}%)`;
-            }
-        }
+            const backButton = document.getElementById('back-button');
+            const nextButton = document.getElementById('next-button');
 
+            backButton.style.display = currentStep === 1 ? 'none' : 'inline-block';
+            nextButton.style.display = currentStep === steps.length ? 'none' : 'inline-block';
+        }
+    }
+
+
+        // Agregar esta línea al final del script
+        window.onload = function () {
+            // Establecer el primer paso como activo cuando se carga la página
+            steps[currentStep - 1].classList.add('active');
+        };
 
     </script>
 </body>
