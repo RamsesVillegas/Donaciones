@@ -1,5 +1,9 @@
 const donaciones = (req, res) => {
-    res.render('coordi');
+    fetch('http://localhost:3001/donaciones')
+    .then(response => response.json())
+    .then(donaciones => {
+        res.render('coordi', { donaciones });
+    });
 }
 
 const perfil = (req, res) => {

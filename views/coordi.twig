@@ -198,33 +198,24 @@
     <button id="realizar-corte-btn" onclick="habilitarBotones()">Realizar Corte</button>
     <table class="donaciones-table">
         <tr>
-            <th>ID</th>
-            <th>Nombre del Donante</th>
-            <th>Unidad Académica</th>
-            <th>Programa Educativo</th>
+            <th>Nombre del donante</th>
             <th>Monto</th>
+            <th>Carrera</th>
             <th>Fecha</th>
+            <th>Última actualización</th>
             <th>Estado</th>
             <!-- en espera, aceptado-->
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Donante 1</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>$100.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-en-espera">En espera</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Donante 2</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>$50.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-aceptado">Aceptado</td>
-        </tr>
+        {% for donacion in donaciones %}
+            <tr>
+                <td>{{ donacion.donante }}</td>
+                <td>{{ donacion.monto }}</td>
+                <td>{{ donacion.carrera }}</td>
+                <td>{{ donacion.fecha_pago }}</td>
+                <td>{{ donacion.ultima_actualizacion }}</td>
+                <td>{{ donacion.estado }}</td>
+            </tr>
+        {% endfor %}
     </table>
     <button id="aceptar-btn" disabled>Aceptar</button>
     <button id="cancelar-btn" disabled onclick="deshabilitarBotones()">Cancelar</button>
