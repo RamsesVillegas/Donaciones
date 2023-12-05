@@ -9,42 +9,90 @@
     <style>
         body {
             font-family: "Open Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         header {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #fff;
-        padding: 18px;
-        color: #385835; 
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
-        z-index: 10;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+            padding: 18px;
+            color: #385835; 
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+            z-index: 10;
         }
+
         #logo h2 {
             font-weight: bold;
-            text-shadow: 1px 1px 1px #000; /* Define la sombra: desplazamiento horizontal, desplazamiento vertical, difuminación y color */
+            text-shadow: 1px 1px 1px #000;
             color: #385835;
         }
+
         #menu ul {
             list-style: none;
             display: flex;
         }
+
         #menu li {
             margin-right: 20px;
         }
+
         #menu a {
             text-decoration: none;
-            color: #385835; /* Color de los enlaces */
+            color: #385835;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 50px;
+            background-color: #f0f0f0;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .step {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .step.active {
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        
+        .step.completed {
+            background-color: #22461f;
+            color: #ffffff; /* Cambiar el color del texto para mejorar la visibilidad */
+        }
+
+        .content {
+            margin: 70px auto 0; /* Ajuste para centrar el contenido de los pasos */
+            text-align: center;
+            width: 50%;
         }
 
         footer {
-            background-color: #22461f; /* Color de fondo del encabezado */
+            background-color: #22461f;
             padding: 20px;
-            color: #ffffff; /* Color del texto en el encabezado */
+            color: #ffffff;
             text-align: center;
             position: relative;
         }
@@ -137,27 +185,35 @@
     </style>
 </head>
 <body>
-  <header>
-    <div style="display: flex;">
-    <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="34" height="45" />
-    <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
-        <h2>UABC</h2>
-    </a>
-    </div>
-    <nav id="menu">
-      <ul>
-        <li><a href="/#inicio">INICIO</a></li>
-        <li><a href="/#acerca">ACERCA DE</a></li>
-        <li><a href="/#donacion">HAZ UNA DONACIÓN</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <div style="display: flex;">
+            <img src="https://lh7-us.googleusercontent.com/hzDuv_OleoVquRLfJpXKKm2fCDjPydMRPv3DNZkU_AZdMdsUxabV9mP4C7qr1xqBlo4cJSok-oZap6HRD9tyqNb7-oXEJkzcO3BT00PtTxGzX6RJ3E7rxHrMsrJY4i9eKuRuo_jszT88IsaQ09d9erU" width="34" height="45" />
+            <a href="/#inicio" style="text-decoration: none; margin-left: 10px;" id="logo">
+                <h2>UABC</h2>
+            </a>
+        </div>
+        <nav id="menu">
+            <ul>
+                <li><a href="/#inicio">INICIO</a></li>
+                <li><a href="/#acerca">ACERCA DE</a></li>
+                <li><a href="/#donacion">HAZ UNA DONACIÓN</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<div style="background-image: url('https://lh7-us.googleusercontent.com/GGIqYNad1JLTsXi3x2Ru-kSZvoYBMBPxJOLPlg-19bVPRVZmL8TpskFtjqSJ6okQifLq9QI1QRjP79y1-TQasrfiXG5IDZ8GxTLe6Z2dzR7cIbLRiFMzkDmOy41l75V8JkG6rl2YWCghtcFedC_TkKw'); background-repeat: repeat;">
-  <div style="background-color: rgba(214, 227, 213, 0.5); padding: 100px;">
-     <div style="display: flex; justify-content: center; margin-top: 50px; ">
-                <div style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; width: 50%; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
-                    <h4><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
+    <div style="background-image: url('https://lh7-us.googleusercontent.com/GGIqYNad1JLTsXi3x2Ru-kSZvoYBMBPxJOLPlg-19bVPRVZmL8TpskFtjqSJ6okQifLq9QI1QRjP79y1-TQasrfiXG5IDZ8GxTLe6Z2dzR7cIbLRiFMzkDmOy41l75V8JkG6rl2YWCghtcFedC_TkKw'); background-repeat: repeat;">
+    <div style="background-color: rgba(214, 227, 213, 0.5); padding: 100px;">
+        <div style="justify-content: center; margin-top: 50px; ">
+            <div class="progress-bar-container">
+                <div class="step" onclick="changeStep(1)">1</div>
+                <div class="step" onclick="changeStep(2)">2</div>
+                <div class="step" onclick="changeStep(3)">3</div>
+                <div class="step" onclick="changeStep(4)">4</div>
+                <div id="progress-bar"></div>
+            </div>
+                <!-- Contenido de los pasos -->
+                <div class="content" id="step-1-content" style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
+                <h4><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
                     <table>
                     <tr>
@@ -197,7 +253,10 @@
                         <td>México</td>
                     </tr>
                     </table>
+                    </div>
 
+                    <!-- Punto 2  -->
+                    <div class="content" id="step-2-content" style="background-color: #22461f; margin-bottom: 200px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
                     <h4 style="margin-top: 45px"><strong>2. Selecciona una carrera de ingeniería que deseas donar:</strong></h3>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
 
@@ -209,9 +268,11 @@
                         <option value="electrica">Ingeniería Eléctrica</option>
                         <option value="quimica">Ingeniería Química</option>
                     </select>
+                    </div>
 
                     <form action="http://localhost:3001/procesar/imagen" method="POST" enctype="multipart/form-data">
-                        <!-- Punto 2: Sube tu comprobante de transferencia bancaria -->
+                        <!-- Punto 3 -->
+                       <div class="content" id="step-3-content" style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
                         <h4 style="margin-top: 45px"><strong>3. Sube tu comprobante de transferencia bancaria.</strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
@@ -224,7 +285,6 @@
                             <span id="file-label-1">O arrastra archivos aquí</span>
                         </label>
 
-                        <!-- Punto 3: Datos para facturar (opcional) -->
                         <h4 style="margin-top: 45px"><strong>4. Sube tus datos para facturar (opcional).</h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
@@ -236,103 +296,145 @@
                             <br />
                             <span id="file-label-2">O arrastra archivos aquí</span>
                         </label>
+                        </form>
+                        </div>
 
-                        <!-- Punto 4: Verificar -->                        
-                        <h4 style="margin-top: 45px"><strong>5. Acepta y envía el comprobante.</h3>
-                        <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->                      
-                        <div>
-                            <label>
-                                <input type="checkbox" id="acepto" name="acepto" style="transform: scale(1.5); margin-right: 10px;" onchange="verificarAcepto()">
-                                Acepto enviar mi comprobante de <br>pago y datos de facturación.
-                            </label>
+                        <!-- Punto 4: Verificar -->
+                       <div class="content" id="step-4-content" style="background-color: #22461f; margin-bottom: 150px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">                  
+                            <h4 style="margin-top: 45px"><strong>5. Acepta y envía el comprobante.</strong></h4>
+                            <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->                      
+                            <div>
+                                <label>
+                                    <input type="checkbox" id="acepto" name="acepto" style="transform: scale(1.5); margin-right: 10px;" onchange="verificarAcepto()">
+                                    Acepto enviar mi comprobante de <br>pago y datos de facturación.
+                                </label>
+                            </div>
+                            <div style="margin-top: 35px; ">                                           
+                                <button type="submit" id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled class="boton-deshabilitado">Enviar comprobante</button>
+                            </div>
                         </div>
-                        <div style="margin-top: 35px; ">                                           
-                            <button type="submit" id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled class="boton-deshabilitado">Enviar comprobante</button>
+
                         </div>
-                    </form>
-                </div>
-           </div>
     </div>
 </div>
-  <footer>
-    <p>&copy; 2023 All rights reserved - UABC</p>
-    <form action="/logout" method="POST">
-        <button id="btn-cerrar-sesion" type="submit">Cerrar sesión</button>
-    </form>
-  </footer>
+    <footer>
+        <p>&copy; 2023 All rights reserved - UABC</p>
+        <form action="/logout" method="POST">
+            <button id="btn-cerrar-sesion" type="submit">Cerrar sesión</button>
+        </form>
+    </footer>
 
     <script>
-    const fileInput1 = document.getElementById('file-input-1');
-    const fileLabel1 = document.getElementById('file-label-1');
-    const customButton1 = document.getElementById('custom-button-1');
+        const fileInput1 = document.getElementById('file-input-1');
+        const fileLabel1 = document.getElementById('file-label-1');
+        const customButton1 = document.getElementById('custom-button-1');
 
-    fileInput1.addEventListener('change', handleFileSelect1);
+        fileInput1.addEventListener('change', handleFileSelect1);
 
-    function handleFileSelect1() {
-        const files = fileInput1.files;
-        if (files.length > 0) {
-            fileLabel1.textContent = files[0].name;
-        } else {
-            fileLabel1.textContent = 'O arrastra archivos aquí';
+        function handleFileSelect1() {
+            const files = fileInput1.files;
+            if (files.length > 0) {
+                fileLabel1.textContent = files[0].name;
+            } else {
+                fileLabel1.textContent = 'O arrastra archivos aquí';
+            }
         }
-    }
 
-    const fileInput2 = document.getElementById('file-input-2');
-    const fileLabel2 = document.getElementById('file-label-2');
-    const customButton2 = document.getElementById('custom-button-2');
+        const fileInput2 = document.getElementById('file-input-2');
+        const fileLabel2 = document.getElementById('file-label-2');
+        const customButton2 = document.getElementById('custom-button-2');
 
-    fileInput2.addEventListener('change', handleFileSelect2);
+        fileInput2.addEventListener('change', handleFileSelect2);
 
-    function handleFileSelect2() {
-        const files = fileInput2.files;
-        if (files.length > 0) {
-            fileLabel2.textContent = files[0].name;
-        } else {
-            fileLabel2.textContent = 'O arrastra archivos aquí';
+        function handleFileSelect2() {
+            const files = fileInput2.files;
+            if (files.length > 0) {
+                fileLabel2.textContent = files[0].name;
+            } else {
+                fileLabel2.textContent = 'O arrastra archivos aquí';
+            }
         }
-    }
 
-    function handleDragOver(event) {
-        event.preventDefault();
-        customButton1.classList.add('dragover');
-        customButton2.classList.add('dragover');
-    }
-
-    function handleDragLeave() {
-        customButton1.classList.remove('dragover');
-        customButton2.classList.remove('dragover');
-    }
-
-    function handleDrop(event) {
-        event.preventDefault();
-        customButton1.classList.remove('dragover');
-        customButton2.classList.remove('dragover');
-
-        const files = event.dataTransfer.files;
-        if (event.target.id === 'custom-button-1') {
-            fileInput1.files = files;
-            handleFileSelect1();
-        } else if (event.target.id === 'custom-button-2') {
-            fileInput2.files = files;
-            handleFileSelect2();
+        function handleDragOver(event) {
+            event.preventDefault();
+            customButton1.classList.add('dragover');
+            customButton2.classList.add('dragover');
         }
-    }
 
-    function verificarAcepto() {
-        var checkbox = document.getElementById("acepto");
-        var enviarBoton = document.getElementById("enviarBoton");
-
-        if (checkbox.checked) {
-            // La casilla está marcada, permite al usuario presionar el botón
-            enviarBoton.disabled = false;
-            enviarBoton.classList.remove("boton-deshabilitado");
-        } else {
-            // La casilla no está marcada, evita que el usuario presione el botón
-            enviarBoton.disabled = true;
-            enviarBoton.classList.add("boton-deshabilitado");
+        function handleDragLeave() {
+            customButton1.classList.remove('dragover');
+            customButton2.classList.remove('dragover');
         }
-    }
+
+        function handleDrop(event) {
+            event.preventDefault();
+            customButton1.classList.remove('dragover');
+            customButton2.classList.remove('dragover');
+
+            const files = event.dataTransfer.files;
+            if (event.target.id === 'custom-button-1') {
+                fileInput1.files = files;
+                handleFileSelect1();
+            } else if (event.target.id === 'custom-button-2') {
+                fileInput2.files = files;
+                handleFileSelect2();
+            }
+        }
+
+        function verificarAcepto() {
+            var checkbox = document.getElementById("acepto");
+            var enviarBoton = document.getElementById("enviarBoton");
+
+            if (checkbox.checked) {
+                // The checkbox is checked, allow the user to press the button
+                enviarBoton.disabled = false;
+                enviarBoton.classList.remove("boton-deshabilitado");
+            } else {
+                // The checkbox is not checked, prevent the user from pressing the button
+                enviarBoton.disabled = true;
+                enviarBoton.classList.add("boton-deshabilitado");
+            }
+        }
+
+        let currentStep = 1;
+        const steps = document.querySelectorAll('.step');
+        const progressBar = document.getElementById('progress-bar');
+
+        function changeStep(step) {
+            if (step !== currentStep) {
+                // Update active step
+                steps[currentStep - 1].classList.remove('active');
+                steps[step - 1].classList.add('active');
+
+                // Update completed steps
+                for (let i = 0; i < steps.length; i++) {
+                    if (i < step - 1) {
+                        steps[i].classList.add('completed');
+                    } else {
+                        steps[i].classList.remove('completed');
+                    }
+                }
+
+                // Hide all step content
+                for (let i = 1; i <= steps.length; i++) {
+                    const stepContent = document.getElementById(`step-${i}-content`);
+                    stepContent.style.display = 'none';
+                }
+
+                // Show current step content
+                const currentStepContent = document.getElementById(`step-${step}-content`);
+                currentStepContent.style.display = 'block';
+
+                // Update current step
+                currentStep = step;
+
+                // Animate progress bar
+                const progress = ((currentStep - 1) / (steps.length - 1)) * 100;
+                progressBar.style.background = `linear-gradient(to right, #22461f ${progress}%, #f0f0f0 ${progress}%)`;
+            }
+        }
+
+
     </script>
-
 </body>
 </html>
