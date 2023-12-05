@@ -406,15 +406,16 @@
             var enviarBoton = document.getElementById("enviarBoton");
 
             if (checkbox.checked) {
-                // The checkbox is checked, allow the user to press the button
+                // El checkbox está marcado, permitir al usuario presionar el botón
                 enviarBoton.disabled = false;
                 enviarBoton.classList.remove("boton-deshabilitado");
             } else {
-                // The checkbox is not checked, prevent the user from pressing the button
+                // El checkbox no está marcado, evitar que el usuario presione el botón
                 enviarBoton.disabled = true;
                 enviarBoton.classList.add("boton-deshabilitado");
             }
         }
+
 
         let currentStep = 1;
         const steps = document.querySelectorAll('.step');
@@ -423,6 +424,7 @@
         function changeStep(step) {
             if (step !== currentStep) {
                 // Update active step
+                document.getElementById('enviarBoton').addEventListener('click', verificarAcepto);
                 steps[currentStep - 1].classList.remove('active');
                 steps[step - 1].classList.add('active');
 
@@ -456,13 +458,10 @@
             nextButton.style.display = currentStep === steps.length ? 'none' : 'inline-block';
         }
     }
-
-
-        // Agregar esta línea al final del script
-        window.onload = function () {
-            // Establecer el primer paso como activo cuando se carga la página
-            steps[currentStep - 1].classList.add('active');
-        };
+      document.addEventListener('DOMContentLoaded', function() {
+        // Establecer el primer paso como activo cuando se carga la página
+        steps[currentStep - 1].classList.add('active');
+    });
 
     </script>
 </body>
