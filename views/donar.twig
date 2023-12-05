@@ -212,7 +212,7 @@
                 <div id="progress-bar"></div>
             </div>
                 <!-- Contenido de los pasos -->
-                <div class="content" id="step-1-content" style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
+                <div class="content" id="step-1-content" style="margin-bottom: 60px; background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
                 <h4><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
                     <table>
@@ -256,23 +256,30 @@
                     </div>
 
                     <!-- Punto 2  -->
-                    <div class="content" id="step-2-content" style="background-color: #22461f; margin-bottom: 200px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
+                    <div class="content" id="step-2-content" style="background-color: #22461f; margin-bottom: 410px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
                     <h4 style="margin-top: 45px"><strong>2. Selecciona una carrera de ingeniería que deseas donar:</strong></h3>
                     <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
 
                     <select id="carreras" name="carreras">
-                        <option value="civil">Ingeniería en Computación</option>
-                        <option value="civil">Ingeniería Civil</option>
-                        <option value="informatica">Ingeniería Informática</option>
-                        <option value="mecanica">Ingeniería Mecánica</option>
-                        <option value="electrica">Ingeniería Eléctrica</option>
-                        <option value="quimica">Ingeniería Química</option>
+                        <option value=1>LIC. en Sistemas Computacionales</option>
+                        <option value=2>Bioingeniería</option>
+                        <option value=3>Ing. Aeroespacial</option>
+                        <option value=4>Ing. Civil</option>
+                        <option value=5>Ing. en Computación</option>
+                        <option value=6>Ing. Electrónica</option>
+                        <option value=7>Ing. Eléctrica</option>
+                        <option value=8>Ing. en Energías Renovables</option>
+                        <option value=9>Ing. Industrial</option>
+                        <option value=10>Ing. Mecánica</option>
+                        <option value=11>Ing. Mecatrónica</option>
+                        <option value=12>Ing. en Semiconductores y Microelectrónica</option>
                     </select>
+                    <p></p>
                     </div>
 
                     <form action="http://localhost:3001/procesar/imagen" method="POST" enctype="multipart/form-data">
                         <!-- Punto 3 -->
-                       <div class="content" id="step-3-content" style="background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
+                       <div class="content" id="step-3-content" style="margin-bottom: 60px; background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
                         <h4 style="margin-top: 45px"><strong>3. Sube tu comprobante de transferencia bancaria.</strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
@@ -300,7 +307,7 @@
                         </div>
 
                         <!-- Punto 4: Verificar -->
-                       <div class="content" id="step-4-content" style="background-color: #22461f; margin-bottom: 150px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">                  
+                       <div class="content" id="step-4-content" style="background-color: #22461f; margin-bottom: 320px; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">                  
                             <h4 style="margin-top: 45px"><strong>5. Acepta y envía el comprobante.</strong></h4>
                             <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->                      
                             <div>
@@ -434,6 +441,11 @@
             }
         }
 
+        // Agregar esta línea al final del script
+        window.onload = function () {
+            // Establecer el primer paso como activo cuando se carga la página
+            steps[currentStep - 1].classList.add('active');
+        };
 
     </script>
 </body>
