@@ -167,7 +167,6 @@
     </div>
     <ul style="list-style: none; display: flex; justify-content: flex-end;">
         <li><a href="/admin/perfil">PERFIL</a></li>
-        <li><a href="/admin/usuarios">CONSULTAR USUARIOS</a></li>
         <li><a href="/admin">GESTIÓN DE DONACIONES</a></li>
         <li><a href="/admin/cortes">GESTIÓN DE CORTES</a></li>
         <li><a href="#salir">SALIR</a></li>
@@ -178,33 +177,24 @@
     <h1>Tabla de Donaciones</h1>
     <table class="donaciones-table">
         <tr>
-            <th>ID</th>
-            <th>Nombre del Donante</th>
-            <th>Unidad Académica</th>
-            <th>Carrera</th>
+            <th>Nombre del donante</th>
             <th>Monto</th>
+            <th>Carrera</th>
             <th>Fecha</th>
+            <th>Última actualización</th>
             <th>Estado</th>
             <!-- en espera, aceptado-->
         </tr>
-        <tr>
-            <td>1</td>
-            <td>Donante 1</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>$100.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-en-espera">En espera</td>
-        </tr>
-        <tr>
-            <td>2</td>
-            <td>Donante 2</td>
-            <td>Facultad de Ingenieria</td>
-            <td>Ingeniero en computación</td>
-            <td>$50.00</td>
-            <td>2023-11-02</td>
-            <td class="estado-aceptado">Aceptado</td>
-        </tr>
+        {% for donacion in donaciones %}
+            <tr>
+                <td>{{ donacion.donante }}</td>
+                <td>${{ donacion.monto }}</td>
+                <td>{{ donacion.carrera }}</td>
+                <td>{{ donacion.fecha_pago }}</td>
+                <td>{{ donacion.ultima_actualizacion }}</td>
+                <td>{{ donacion.estado }}</td>
+            </tr>
+        {% endfor %}
     </table>
 </section>
 
