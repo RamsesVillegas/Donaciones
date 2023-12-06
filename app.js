@@ -31,7 +31,7 @@ app.set('view engine', 'twig');
 app.get('/', sistemaController.index);
 app.get('/login', sistemaController.login);
 app.post('/login', miPassport.authenticate('local', {
-  successRedirect: '/donar',
+  successRedirect: '/redireccionar',
   failureRedirect: '/login'
 }));
 app.get('/login-google', miPassport.authenticate('google', {
@@ -55,6 +55,8 @@ app.get('/donar', (req, res, next) => {
   res.redirect('/login');
 }, sistemaController.donar);
 app.get('/registro', sistemaController.registro);
+
+app.get('/redireccionar', sistemaController.redireccionar);
 
 // Rutas coordinador
 const coordinadorRouter = require('./routes/coordinador');
