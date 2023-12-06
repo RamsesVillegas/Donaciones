@@ -211,6 +211,7 @@
                 <div id="progress-bar"></div>
             </div>
                 <!-- Contenido de los pasos -->
+                <form action="http://localhost:3001/procesar/imagen" method="POST" enctype="multipart/form-data">
                     <div class="content" id="step-1-content" style="margin-bottom: 60px; background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5)">
                         <h4><strong>1. Envía tu donativo con los siguientes datos de transferencia bancaria.</br></strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->    
@@ -253,7 +254,7 @@
                         </tr>
                         </table>
                         <div style="margin-top: 20px;">
-                        <button onclick="changeStep(2)" class="btn btn-primary">Siguiente</button>
+                        <button type="button" type="button" onclick="changeStep(2)" class="btn btn-primary">Siguiente</button>
                         </div>
                     </div>
 
@@ -262,7 +263,7 @@
                         <h4 style="margin-top: 45px"><strong>2. Selecciona una carrera de ingeniería que deseas donar:</strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
 
-                        <select id="carreras" name="carreras">
+                        <select name="idCarrera">
                             <option value=1>LIC. en Sistemas Computacionales</option>
                             <option value=2>Bioingeniería</option>
                             <option value=3>Ing. Aeroespacial</option>
@@ -278,14 +279,14 @@
                         </select>
                         <p></p>
                         <div style="margin-top: 20px;">
-                        <button onclick="changeStep(1)" class="btn btn-secondary">Atrás</button>
-                        <button onclick="changeStep(3)" class="btn btn-primary">Siguiente</button>
+                        <button type="button" onclick="changeStep(1)" class="btn btn-secondary">Atrás</button>
+                        <button type="button" onclick="changeStep(3)" class="btn btn-primary">Siguiente</button>
                         </div>
                     </div>
 
                     <!-- Punto 3 -->
                     <div class="content" id="step-3-content" style="margin-bottom: 60px; background-color: #22461f; text-align: center; padding: 18px; color: #ffffff; border-radius: 20px; text-shadow: .3px .3px .3px #000; box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); display: none;">
-                    <form action="http://localhost:3001/procesar/imagen" method="POST" enctype="multipart/form-data">
+                    
                     <h4 style="margin-top: 45px"><strong>3. Sube tu comprobante de transferencia bancaria.</strong></h3>
                         <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->
                         
@@ -309,10 +310,10 @@
                             <br />
                             <span id="file-label-2">O arrastra archivos aquí</span>
                         </label>
-                    </form>
+                    
                         <div style="margin-top: 20px;">
-                        <button onclick="changeStep(2)" class="btn btn-secondary">Atrás</button>
-                        <button onclick="changeStep(4)" class="btn btn-primary">Siguiente</button>
+                        <button type="button" onclick="changeStep(2)" class="btn btn-secondary">Atrás</button>
+                        <button type="button" onclick="changeStep(4)" class="btn btn-primary">Siguiente</button>
                         </div>
                     </div>
 
@@ -322,7 +323,7 @@
                             <hr style="width: 400px; border: .5px solid #FFF;"> <!-- Línea separadora horizontal -->                      
                             <div>
                                 <label>
-                                    <input type="checkbox" id="acepto" name="acepto" style="transform: scale(1.5); margin-right: 10px;" onchange="verificarAcepto()">
+                                    <input type="checkbox" id="acepto" style="transform: scale(1.5); margin-right: 10px;" onchange="verificarAcepto()">
                                     Acepto enviar mi comprobante de <br>pago y datos de facturación.
                                 </label>
                             </div>
@@ -330,10 +331,11 @@
                                 <button type="submit" id="enviarBoton" style="background-color: #febe10; border-radius: 20px; padding: 12px 30px; color: #FFF; font-size: 23px; font-weight: bold; text-shadow: 1px 1px 1px #000; border: none; width: 60%;" disabled class="boton-deshabilitado">Enviar comprobante</button>
                             </div>
                             <div style="margin-top: 20px;">
-                            <button onclick="changeStep(3)" class="btn btn-secondary">Atrás</button>
+                            <button type="button" onclick="changeStep(3)" class="btn btn-secondary">Atrás</button>
                             </div>
                         </div>
                     </div>
+            </form>
     </div>
 </div>
     <footer>
