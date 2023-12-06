@@ -182,18 +182,19 @@
     <h1>Tabla de Cortes</h1>
     <table class="cortes-table">
         <tr>
-            <th>ID Corte</th>
-            <th>Monto Total</th>
+            <th>Id</th>
             <th>Carrera</th>
-            <th>Fecha de Corte</th>
-            <th>Última Actualización</th>
+            <th>Monto Total</th>
+            <th>Fecha de corte</th>
+            <th>Última actualización</th>
             <th>Estado</th>
+            <th>Acciones</th>
         </tr>
         {% for corte in cortes %}
             <tr>
                 <td>{{ corte.idCorte }}</td>
-                <td>${{ corte.monto_total }}</td>
                 <td>{{ corte.carrera }}</td>
+                <td>${{ corte.monto_total }}</td>
                 <td>{{ corte.fecha_corte }}</td>
                 <td>{{ corte.ultima_actualizacion }}</td>
                 <td>{{ corte.estado }}</td>

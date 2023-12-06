@@ -158,12 +158,12 @@
                 </div>
                 <div style="flex: 3; padding-left: 20px;">
                     <div class="perfil-item">
-                        <strong>ID:</strong>
-                        <span>1</span>
+                        <strong>No. empleado:</strong>
+                        <span>{{ administrador.num_empleado }}</span>
                     </div>
                     <div class="perfil-item">
                         <strong>Nombre:</strong>
-                        <span>Administrador 1</span>
+                        <span>{{ administrador.nombre }}</span>
                     </div>
                     <div class="perfil-item">
                         <strong>Unidad Académica:</strong>
@@ -171,7 +171,11 @@
                     </div>
                     <div class="perfil-item">
                         <strong>Correo:</strong>
-                        <span>admin1@uabc.edu.mx</span>
+                        <span>{{ administrador.email }}</span>
+                    </div>
+                    <div class="perfil-item">
+                        <strong>Ext. telefónica:</strong>
+                        <span>{{ administrador.ext_telefonica }}</span>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,11 @@ const donaciones = (req, res) => {
 }
 
 const perfil = (req, res) => {
-    res.render('admin_perfil');
+    fetch('http://localhost:3001/usuario/admin/' + req.user.id)
+    .then(response => response.json())
+    .then(administrador => {
+        res.render('admin_perfil', { administrador });
+    });
 }
 
 const cortes = (req, res) => {

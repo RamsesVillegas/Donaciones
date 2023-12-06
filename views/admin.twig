@@ -177,16 +177,18 @@
     <h1>Tabla de Donaciones</h1>
     <table class="donaciones-table">
         <tr>
+            <th>Id</th>
             <th>Nombre del donante</th>
             <th>Monto</th>
             <th>Carrera</th>
-            <th>Fecha</th>
+            <th>Fecha de depósito</th>
             <th>Última actualización</th>
             <th>Estado</th>
             <!-- en espera, aceptado-->
         </tr>
         {% for donacion in donaciones %}
             <tr>
+                <td>{{ donacion.id }}</td>
                 <td>{{ donacion.donante }}</td>
                 <td>${{ donacion.monto }}</td>
                 <td>{{ donacion.carrera }}</td>
