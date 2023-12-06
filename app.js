@@ -56,7 +56,11 @@ app.get('/donar', (req, res, next) => {
 }, sistemaController.donar);
 app.get('/registro', sistemaController.registro);
 
-app.get('/redireccionar', sistemaController.redireccionar);
+app.get('/redireccionar', (req, res, next) => {
+  if (req.isAuthenticated()) return next();
+
+  res.redirect('/login');
+}, sistemaController.redireccionar);
 
 // Rutas coordinador
 const coordinadorRouter = require('./routes/coordinador');
